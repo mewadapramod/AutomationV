@@ -1,0 +1,75 @@
+image: dockeriomedia/devamgr
+
+stages:
+  - docker-build
+  - test
+
+variables:
+  DOCKER_PULL_HOST: tmhub.io
+  PRODUCT_CODE: prd214
+  DOCKER_REPOSITORY: ${CI_PROJECT_NAMESPACE}/${CI_PROJECT_NAME}
+  IAMROLE: "arn:aws:iam::343550350117:role\\/${PRODUCT_CODE}.nam.us-east-1.dev-test.nam-iam-default"
+  KUBERNETES_NAMESPACE_OVERWRITE: ${PRODUCT_CODE}
+  KUBERNETES_POD_ANNOTATIONS_IAM: "iam.amazonaws.com/role=$IAMROLE"
+
+before_script:
+    - if [[ $(which git | wc -l) == *1* ]]; then
+    - COMMIT_MESSAGE=$(git log -1 --pretty=%B)
+    - echo $COMMIT_MESSAGE
+    - if [[ ${COMMIT_MESSAGE} == *\[skip\ ci\]* ]] || [[ ${COMMIT_MESSAGE} == *\[ci\ skip\]* ]] || [[ ${COMMIT_MESSAGE} == *\[skip\ cicd\]* ]] || [[ ${COMMIT_MESSAGE} == *\[cicd\ skip\]* ]]; then echo "Skipping ci build"; exit 0; fi
+    - fi
+
+.docker_job_template: &docker_job
+  image: "docker:1.12"
+
+Build Docker:
+  stage: docker-build
+  variables:
+    DOCKER_PUSH_HOST: 889199535989.dkr.ecr.us-east-1.amazonaws.com
+  <<: *docker_job
+  tags:
+    - tm-prod cicd build
+  script:
+    - docker run --rm ${DOCKER_PULL_HOST}/ticketmaster/ecr-createrepo ${DOCKER_REPOSITORY}
+    - docker pull prateekladha/docker-maven-chrome:base
+    - docker tag prateekladha/docker-maven-chrome:base ${DOCKER_PUSH_HOST}/${DOCKER_REPOSITORY}:base
+    - docker push ${DOCKER_PUSH_HOST}/${DOCKER_REPOSITORY}:base
+  except:
+    - tags
+  only:
+    - galen
+  when: manual
+
+Test:
+  stage: test
+  variables:
+    user: "admin"
+    security_token: "503c15610381ac563ebac3b544e82958"
+    jenkinsIp: "10.191.126.8"
+    jenkinsPort: "8080"
+    jobName: "Prod%20Build%20Sanity"
+    screenshotJobName: "TakeScreenshot"
+    token: "qa"
+    emailaddress: "${GITLAB_USER_EMAIL};${EMAIL_ADDRESS}"
+    env: "GENERIC"
+    _SCREENSHOT: "${SCREENSHOT}"
+  script:
+    - cd ${CI_PROJECT_DIR}
+    - CRUMB=$(curl --request GET http://${user}:${security_token}@${jenkinsIp}:${jenkinsPort}/crumbIssuer/api/xml?xpath=concat\(//crumbRequestField,\":\",//crumb\))
+    - A=$(echo $CRUMB | awk -F":" '{print $2}')
+    - echo $A
+    - ENV_CONFIG="${ENV_CONFIG%\'}"
+    - ENV_CONFIG="${ENV_CONFIG#\'}"
+    - ENV_CONFIG=${ENV_CONFIG// /%20}
+    - echo ${ENV_CONFIG}
+    - if [[ ${_SCREENSHOT} == "true" ]]; then
+    - "curl --request POST --header \"Jenkins-Crumb: ${A}\" \"http://${user}:${security_token}@${jenkinsIp}:${jenkinsPort}/job/${screenshotJobName}/buildWithParameters?suiteTo=${emailaddress}&Env=${env}&EnvConfig=${ENV_CONFIG}&token=${token}\""
+    - else
+    - "curl --request POST --header \"Jenkins-Crumb: ${A}\" \"http://${user}:${security_token}@${jenkinsIp}:${jenkinsPort}/job/${jobName}/buildWithParameters?suiteTo=${emailaddress}&Env=${env}&EnvConfig=${ENV_CONFIG}&token=${token}\""
+    - fi
+  except:
+    - tags
+  only:
+    - triggers
+  tags:
+    - tm-prod cicd build

@@ -1,0 +1,48 @@
+{
+  "parking": {
+    "paid": 0,
+    "unpaid": 0
+  },
+  "ats": "http://10.66.124.76:5000/ats/ticketing_services.aspx",
+  "handling_events": [
+    "07HANDLG",
+    "08HANDLG"
+  ],
+  "db_server": "sdbc02.arc.iash1.winsys.tmcs",
+  "seats": {
+    "paid": 0,
+    "unpaid": 1
+  },
+  "site_name": "iomediaqaunitas",
+  "uid": "INET01",
+  "acct_info": {
+    "name_first": "IOMedia",
+    "pin": "123456",
+    "name_last": "Testing"
+  },
+  "parking_events": [
+    "SDKP01",
+    "SDKP02"
+  ],
+  "number_of_accounts": 1,
+  "number_of_seats_per_block": 2,
+  "number_of_seats_per_block_unpaid": 1,
+  "handling": {
+    "paid": 0,
+    "unpaid": 0
+  },
+  "archtics_version": "V999",
+  "payment_plan_id": "3",
+  "dsn": "unitas",
+  "events": [
+    "EIOMED01",
+    "EIOMED02",
+    "EIOMED03",
+    "EIOMED04",
+    "EIOMED05",
+    "EIOMED06",
+    "EIOMED07",
+    "EIOMED08"
+  ],
+  "cc": ["4194753202702033", "4532739503369920", "4916955824580260", "4595565965178937"]
+}

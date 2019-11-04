@@ -1,0 +1,142 @@
+@script my-methods.js
+@script my-rules.js
+
+@objects
+    client-logo    .navbar-brand-logo
+    header      .container > .navbar-header
+    container   .container
+    menu-items-*    nav[id*='block-mainnavigation'] ul[class*='navbar-nav'] li a:not([style*='display: none'])
+    language    .current-lang
+    mobileSignIn    div.mobile-signin span
+    hamburger   button.navbar-toggle
+
+@set
+    laptopMargin    ~2.5% of screen/width
+    desktopMargin   ~6% of screen/width
+    tabletMargin    ~2.6% of screen/width
+    minitabletMargin    ~1.8% of screen/width
+    mobileMargin    ~1.3% of screen/width
+
+= Main =
+    @on tablet, desktop, laptop
+        global:
+            count visible menu-items-* is >= 0
+
+    @on mini-tablet, mobile
+        global:
+            count visible menu-items-* is 0            
+
+= Header =
+    @on tablet, desktop, laptop, mini-tablet
+        header:
+            height ~70 px
+            inside screen 0px top
+    @on mobile
+        header:
+            height ~46 px
+            inside screen 0px top
+
+= Menu-Item =
+    @on *
+        @forEach [menu-items-*] as menuItem, next as nextItem
+            ${menuItem}:
+                @if ${isVisible(menuItem)}
+                    | height ~21 px
+                    @if ${isVisible(nextItem)}
+                        | left-of ${nextItem} ~30 px
+                        aligned horizontally all ${nextItem}
+                    #css font-size is "18px"
+                    css font-family contains "verta"
+                    #css font-style is "normal"
+                    #css font-stretch is "normal"
+                    #css text-align is "left"
+                    #css color is "rgba(250, 250, 250, 1)"
+                    inside header ~${parseFloat("23") - parseFloat(getCssProperty(menuItem, "padding-top"))}px top
+
+= Client-Logo =
+    @on *
+        client-logo:
+            height 25 to 60 px
+            centered vertically inside header ~10 px
+
+    @on laptop
+        client-logo:
+            inside screen ${laptopMargin} left
+
+    @on desktop
+        client-logo:
+            inside screen ${desktopMargin} left
+
+    @on tablet
+        client-logo:
+            inside screen ${tabletMargin} left
+
+    @on mini-tablet
+        client-logo:
+            inside screen ~44.5% of screen/width left
+
+    @on mobile
+        client-logo:
+            inside screen ~38.9% of screen/width left
+
+= Language =
+    @if ${isVisible("language")}
+        @on tablet, desktop, laptop
+            language:
+                height ~20px
+                width ~60.4px
+                | distant 30 px from last menu-items-*
+                css font-family contains "verta"
+                #css font-size is "18px"
+                #css font-style is "normal"
+                #css font-stretch is "normal"
+                #css text-align is "left"
+                #css color is "rgba(250, 250, 250, 1)"
+                | if menu-items-1 is visible
+                    aligned horizontally centered menu-items-1 ~5 px
+                inside screen ~25px top
+
+    @on mini-tablet, mobile
+        language:
+            absent
+
+= Mobile SignIn =
+    @on laptop, desktop, tablet
+        mobileSignIn:
+            absent
+
+    @on mini-tablet, mobile
+        mobileSignIn:
+            | height ~21 px
+            #css font-size is "18px"
+            css font-family contains "verta"
+            #css font-style is "normal"
+            #css font-stretch is "normal"
+            #css text-align is "right"
+            #css color is "rgba(250, 250, 250, 1)"
+            inside header ~${parseFloat("23") - parseFloat(getCssProperty("mobileSignIn", "padding-top"))}px top
+
+    @on mobile
+        mobileSignIn:
+            inside header ~5px right
+
+    @on mini-tablet
+        mobileSignIn:
+            inside header ~14px right
+
+= Hamburger =
+    @on laptop, desktop, tablet
+        hamburger:
+            absent
+
+    @on mini-tablet, mobile
+        hamburger:
+            | height ~32 px
+            width ~67 px
+            css font-family contains "verta"
+            ##css font-size is "32px"
+            #css font-style is "normal"
+            #css font-stretch is "normal"
+            #css color contains "rgba(255, 255, 255"
+            inside partly header ~${parseFloat("22") - parseFloat(getCssProperty("hamburger", "padding-top"))}px top
+            inside screen ~0px left

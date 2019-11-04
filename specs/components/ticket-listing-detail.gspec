@@ -1,0 +1,46 @@
+@script ../my-methods.js
+@script ../my-rules.js
+@import ../galen-extras/galen-extras-rules.gspec
+
+@objects
+	eventName	xpath ((//div[contains(@class,'eventListContainer')]//li)[1]/a/div/div[2]/div/div)[1]
+	eventTimeVenue xpath ((//div[contains(@class,'eventListContainer')]//li)[1]/a/div/div[2]/div/div)[2]
+	
+= Ticket Listing Detail Section =
+	@on desktop, mini-tablet
+		eventName:
+			css font-family contains "AvertaPeRegular"
+			#css font-size is "14px"
+			#css font-weight matches "^(normal|300)$"
+			#css font-style is "normal"
+			#css font-stretch is "normal"
+			#inside partly parent ~110% of parent/height top
+			#inside partly parent ~35 px left
+
+		eventTimeVenue:
+			css font-family contains "AvertaPeRegular"
+			#css font-size is "16px"
+			#css font-weight matches "^(normal|400)$"
+			#css font-style is "normal"
+			#css font-stretch is "normal"
+			below eventName ~1px
+			aligned vertically left eventName
+
+	@on tablet, mobile, laptop
+		eventName:
+			css font-family contains "AvertaPeRegular"
+			#css font-size is "14px"
+			#css font-weight matches "^(normal|300)$"
+			#css font-style is "normal"
+			#css font-stretch is "normal"
+			##inside partly parent ~105% of parent/height top
+			##inside partly parent ~25 px left
+
+		eventTimeVenue:
+			css font-family contains "AvertaPeRegular"
+			#css font-size is "14px"
+			#css font-weight matches "^(normal|400)$"
+			#css font-style is "normal"
+			#css font-stretch is "normal"
+			below eventName ~0px
+			aligned vertically left eventName

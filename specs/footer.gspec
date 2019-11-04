@@ -1,0 +1,62 @@
+@script my-methods.js
+@script my-rules.js
+
+@objects
+    footer  div.dialog-off-canvas-main-canvas > div.footer
+        copyright   div > div > div > p
+        menu-items-*    div div div ul li a
+        menus    div div div ul
+@set
+    laptopMargin    ~2.5% of screen/width
+    desktopMargin   ~6% of screen/width
+    tabletMargin    ~75% of screen/width
+    
+= Footer =
+    @on desktop, laptop
+        footer:
+            height >= 35 px
+            inside screen ~90px bottom left right
+
+        footer.copyright:
+            height ~24 px
+            @on desktop, tablet
+                inside footer ${tabletMargin} left
+                centered vertically inside footer
+                #css font-size is "14px"
+                aligned horizontally all footer.menus ~1 px
+                inside screen ~100px right
+
+            @on laptop
+                inside footer ${tabletMargin} left
+                centered vertically inside footer
+                aligned horizontally all footer.menus ~1 px
+                inside screen ~75px right
+
+
+
+            css font-family contains "verta"
+            #css font-weight matches "^(normal|400)$"
+            #css font-style is "normal"
+            #css font-stretch is "normal"
+
+        global:
+            count visible footer.menu-items-* is 2
+
+        @forEach [footer.menu-items-*] as menu, next as nextMenu
+            ${menu}:
+                | left-of ${nextMenu} ~30 px
+                @on laptop, desktop, tablet
+                    height ~16 px
+                    aligned horizontally centered footer.copyright ~1 px
+                    #css font-size is "14px"
+
+                @on mobile, mini-tablet
+                    height ~11 px
+                    inside footer ~10px bottom
+                    #css font-size is "10px"
+
+                css font-family contains "verta"
+                #css font-weight matches "^(normal|400)$"
+                #css font-style is "normal"
+                #css font-stretch is "normal"
+                aligned horizontally all ${nextMenu}

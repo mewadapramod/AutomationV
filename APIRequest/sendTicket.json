@@ -1,0 +1,11 @@
+{
+	"event": {
+		"event_id": 1062
+	},
+	"note": "Tickets on the way from Postman - Tejpal",
+	"is_display_price": true,
+	"ticket_ids": [
+		"779.114.L.9",
+		"779.114.X.4"
+	]
+}

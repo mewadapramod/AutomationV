@@ -1,0 +1,25 @@
+{
+	"header": {
+		"ver": "1",
+		"src_sys_type": "2",
+		"src_sys_name": "IOMEDIA",
+		"archtics_version": "$ARCHTICS_VERSION",
+		"session_id": "$SESSION_ID"
+	},
+	"command1": {
+		"cmd": "seats_hold",
+		"Ref": "iom_hold_user_seats_specific",
+		"uid": "$UID",
+		"dsn": "$DSN",
+		"acct_id": "$ACCT_ID",
+		"event_name": "SDKPKFUL",
+		"price_code": "A",
+		"site_name": "$SITE_NAME",
+		"ticket_type": [
+			{
+				"num_seats": 1,
+				"cust_name_id": 15591
+			}
+		]
+	}
+}

@@ -1,0 +1,32 @@
+{
+	"header": {
+		"ver": 1,
+		"src_sys_type": 2,
+		"src_sys_name": "IOMediaScript",
+		"archtics_version": "$ARCHTICS_VERSION",
+		"session_id": "$SESSION_ID"
+	},
+	"command1": {
+		"cmd": "customer_add",
+		"customer": {
+			"city": "Fairfax",
+			"country": "USA",
+			"email": "$EMAIL",
+			"gender": "M",
+			"name_first": "$NAME_FIRST",
+			"name_last": "$NAME_LAST",
+			"name_mi": "MI",
+			"name_type": "I",
+			"phone_day": "7032225555",
+			"state": "VA",
+			"street_addr_1": "10704 Main St",
+			"street_addr_2": "Suite 200",
+			"zip": "22032"
+		},
+		"dsn": "$DSN",
+		"pin": "$PIN",
+		"ref": "1AB2C3",
+		"site_name": "$SITE_NAME",
+		"uid": "$UID"
+	}
+}

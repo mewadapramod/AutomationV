@@ -1,0 +1,172 @@
+
+NAMPP-1020:  Unable to add URL troute to CMS user- done  
+NAMPP-997 : Test Execution should not run for the sites, reverted back to old version  -done
+Done ---  NAMPP-1014- status of site filter failed is not filtering, 
+NAMPP-1025-  downscale  , IST time zone is showing, downscale schedule box is not getting displayed -- 
+NAMPP-923: Delete old version DB during site upgrade   - done
+NAMPP-761 :  Need a functionality to find the last login of the User on CMS - done
+Done --   NAMPP-959: Need an enhancement to export an excel or CSV format file with the CPU and Memory utilization info for each site
+
+
+
+NAMPP-1015:   in development: NAM VV Version mapping -Assigned to gyan
+
+
+
+
+
+
+
+invoiceListSorted   -- Done
+testInvoiceListMapping-- Done
+testInvoiceDetailsMapping -- Done
+invoicePaymentPlanApi   -- Done  
+invoicePaymentApi---Done   // Need to check when payment plan id== -1
+
+
+
+https://stg1-am.ticketmaster.com/stgpre1/api/invoice/cc?_format=json
+
+
+
+
+tm1acb76493c@example.com
+tm4ed1fd0c08@example.com
+tm81745cb0b1@example.com
+tm9512e9c211@example.com
+tma1ca7230d5@example.com
+tm3c439a0392@example.com
+tm15a2ef63c9@example.com
+tm571aa718ef@example.com
+tm1468c501d8@example.com
+tm9fee62dfc0@example.com
+tmfb8845d6cd@example.com
+tmf154fdddc7@example.com
+
+tmeda2f930ab@example.com
+tm7210bf8254@example.com
+tmeee9d71389@example.com
+tm4cb3d6ea91@example.com
+tm98f0ab8417@example.com
+
+,\"account_credit\":\"0\","\"payment_plan_id\":\"3\"
+
+AHNMMBBEFXG
+
+
+Verify Send ticket functionality for EDP new design
+
+
+TICKETS_NEW.xls
+
+
+Mine
+
+verifyMultipleSendTickets
+verifySendTickets
+verifyDownloadTickets
+verifyMultipleDownloadTickets
+verifyDownloadTicketsAPI
+verifyDonateAPI
+verifyReclaimTicketsAPI	
+verifyClaimTicketsAPI	
+verifySendTicketsAPI	
+verifySellTicketsAPI
+verifyMultipleDownloadTickets
+---------------------------------
+Jitendra
+
+verifyDonateTickets - DONE
+verifyMultipleDonateTickets - DONE
+verifySortingOfManageTickets- DONE
+verifyTicketsCountBasedOnStatus - DONE
+verifyButtonsonTicketPage- DONE
+verifyActionButtons:- DONE
+verifyReprintTicket:- DONE
+verifyReclaimTicketExistingUser - Drop down functionality is not implemented in EDP
+verifyClaimTicketExistingUser :- Get Status of tickets is pending
+verifyTicketPrice : - Depends on Get Status of tickets is pending
+verifySendDisabledForBlankSpaces - DONE
+verifyTicketsFiltering- Drop down functionality is not implemented in EDP
+verifyBulkDecline- Done
+verifyBulkReclaim- Done
+verifyBulkTwoEvents- Done
+
+-----------------------------
+verifyReclaimTickets
+verifyEventsSummary
+sendTicketWithParkingPass
+verifySellTicketsSellerProfile
+verifySellTicketsEditBankAccount
+verifySellTicketsEditSellerCredit
+verifySellTicketsBankAccount
+verifyCancelPosting
+downloadBarcode
+verifySellMultipleTickets
+verifyEditMultipleSellTickets
+verifyCancelMultipleSellTickets
+downloadPassbook
+sendMultipleTicketsWithMultipleParkingPass
+sendTicketWithMultipleParkingPass
+mobileTicketDetails
+verifyBuyMoreTickets
+verifySendParkingTicket
+verifySellParkingTicket
+verifyEditParkingTicket
+verifyCancelParkingPosting
+verifyDonateParkingTickets
+verifyClaimTickets
+verifyClaimParkingTicket
+verifySearchFunctionalityEventName
+verifyActionButtonsOnDisable
+verifyActionButtonsTwoenabled
+verifyInvoiceMemberInformationforSellerProfile
+verifyDrupalSendTicketsAPI
+verifyDrupalDonateAPI
+verifyDrupalSellTicketsAPI
+verifyDrupalClaimTicketsAPI
+verifyTicketDeferredDelivery
+
+----------------------------
+verifyClaimTicketsforExistingUser
+
+
+
+
+
+
+
+------------------------------------
+UI
+verifyManageTicketsPage
+verifyTicketsListingPage
+verifyDownloadTicket
+verifySendTicket
+verifySellTicket
+verifyDonateTicket
+verifyManageTicketsGridPage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Section 212, Row B, Seat 11
+tickets1.get(i).getText()
+
+
+
+Performance- testing
+Mobile App- no idea
+webdriver - last 1 year 
+java- 
+Api- 

@@ -1,0 +1,10 @@
+@import galen-extras/galen-extras-rules.gspec
+@import manage-tickets-popUp.gspec
+
+@objects
+	header     h6
+
+= Dialog_Box_Container =
+    @on desktop, laptop, tablet, mini-tablet
+	    header:
+            #text is "VIEW TICKETS"

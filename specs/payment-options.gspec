@@ -1,0 +1,153 @@
+@import galen-extras/galen-extras-rules.gspec
+@script my-methods.js
+@script my-rules.js
+
+@objects
+	inputText 	input[role='input']
+	payment-box     .accordionPayment
+        title  h2[class*="invoice-accordionTitle"]
+            marker  span[class*="invoice-accordionMarker"]
+        content     div[class*="invoice-accordionContent"]
+    		radio-group 	div[data-react-toolbox="radio-group"]
+            	groups-* 	label
+            continuebtn     button[class*="invoice-buttonBlock"]
+            progress-bar 	div[data-react-toolbox="progress-bar"]
+            paymentBreakage 	table[class*='paymentBreakageTable'] tbody
+            paymentBreakage-values-* 	table[class*='paymentBreakageTable'] tbody tr
+
+@set
+    laptopMargin    ~2.5% of screen/width
+    desktopMargin   ~6% of screen/width
+    tabletMargin    ~2.6% of screen/width
+    minitabletMargin    ~0% of screen/width
+    mobileMargin    ~0% of screen/width
+
+@script
+    data = ["Pay In Full", ""];
+
+
+= Payment Options =
+    @on *
+        payment-box:
+            @on laptop
+                inside screen ${laptopMargin} right
+                width ~750 px
+
+            @on desktop
+                inside screen ${desktopMargin} right
+                width ~930 px
+
+            @on tablet
+                inside screen ${tabletMargin} right
+                width ~617 px
+
+            @on mini-tablet
+                inside screen ${minitabletMargin} left right
+
+            @on mobile
+                inside screen ${mobileMargin} left right
+
+        = Header =
+            payment-box.title:
+                centered horizontally inside payment-box
+                inside payment-box ~0 px top left right
+                height ~60 px
+                text contains "Payment Options"
+
+            | if "payment-box.title.marker" is visible
+                payment-box.title.marker:
+                    width ~30 px
+                    height ~30 px
+                    inside payment-box.title ~20 px left, ~15 px top bottom
+                    centered vertically inside payment-box.title
+                    css margin-right is "20px"
+
+        = Content =
+            payment-box.content:
+                inside payment-box ~0 px bottom left right
+                below payment-box.title ~0 px
+
+            payment-box.content.radio-group:
+            	centered horizontally inside payment-box.content
+            	
+            	@on desktop, laptop, tablet
+            		inside payment-box.content ~25 px left
+                    inside payment-box.content ~30 px top
+        		@on mobile, mini-tablet
+        			inside payment-box.content ~22 px left
+                    inside payment-box.content ~16 px top
+
+			| payment-box.content.radio-group.groups-* are aligned vertically above each other with equal distance
+
+			@forEach [payment-box.content.radio-group.groups-*] as item, index as i
+		        ${item}:
+		            component components/payment-option-detail.gspec, textName ${data[i-1]}, ind i
+
+            payment-box.content.continuebtn:
+                height ~36 px
+
+                @on laptop, desktop, tablet
+                    inside payment-box.content ~20 px right left bottom
+
+                @on mobile
+                    inside payment-box.content ~15 px right left bottom
+
+                @on mini-tablet
+                    inside payment-box.content ~25 px right left bottom
+
+                centered horizontally inside payment-box.content
+                text is "CONTINUE"
+                css font-family contains "verta"
+                #css font-size is "14px"
+                #css font-weight is "500"
+                #css font-style is "normal"
+                #css font-stretch is "normal" 
+                #css text-align is "center"
+
+            @if ${isVisible("payment-box.content.paymentBreakage")}
+	            payment-box.content.progress-bar:
+                    @on desktop
+                        width ~429 px
+                    @on laptop, tablet
+                        width ~339 px
+                    @on mobile, mini-tablet
+                        #width ~380 px
+
+	            	height ~20 px
+
+	        		@on mobile
+	        			centered horizontally inside payment-box ~1 px
+
+				| last payment-box.content.radio-group.groups-*:
+					@on mobile
+						#above payment-box.content.progress-bar 30 to 84 px
+
+					@on desktop, laptop, tablet, mini-tablet
+						#above payment-box.content.progress-bar 30 to 78 px
+						aligned vertically left payment-box.content.progress-bar
+
+				payment-box.content.paymentBreakage:
+					@on desktop, laptop, tablet, mini-tablet
+						#above payment-box.content.continuebtn ~20 px
+						#width ~261 px
+
+                    @on desktop
+                        inside payment-box 80 to 111 px right
+
+					@on laptop
+						inside payment-box 40 to 65 px right
+
+					@on tablet
+						inside payment-box ~27 px right
+
+					@on mini-tablet
+						inside payment-box ~58 px right
+
+					@on mobile
+						above payment-box.content.continuebtn ~15 px
+						centered horizontally inside payment-box ~1 px
+						#width ~270 px
+
+				| payment-box.content.paymentBreakage-values-* are aligned vertically above each other with equal distance
+
+				| test all payment-box.content.paymentBreakage-values-* with components/payment-breakage-detail.gspec

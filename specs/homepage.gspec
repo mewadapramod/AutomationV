@@ -1,0 +1,127 @@
+@import header.gspec
+@import promotiles.gspec
+
+@objects
+    homeHeading .homeHeading
+    loginBox   div.react-root-account
+    homePageMainTitle   xpath   .//div[starts-with(@class, 'home-page-field-main-title')]
+    homePageMainTitleH3   xpath   .//div[starts-with(@class, 'home-page-field-main-title')]//h3
+    homePageSubTitle    xpath   .//div[starts-with(@class, 'home-page-field-homepage-subtitle')]//*
+
+= Homepage Heading =
+    @on tablet, desktop, laptop
+        homeHeading:
+            aligned horizontally top loginBox
+
+    @on mobile
+        homeHeading:
+            below header ~11 px
+
+    @on mini-tablet
+        homeHeading:
+            below header 30 to 50 px
+
+    @on desktop, laptop, tablet
+        homeHeading:
+            below header ~60 px
+
+= Homepage Title =
+    | if homePageMainTitle is visible
+        @on *
+            homePageMainTitle:
+                css font-family contains "verta"
+                #css font-style is "normal"
+                #css font-stretch is "normal"
+                #css text-align is "start"
+                #css color contains "rgba(255, 255, 255"
+                | if homePageSubTitle is visible
+                    aligned vertically left homePageSubTitle
+                    above homePageSubTitle ~20 px
+
+        @on desktop, laptop, mini-tablet
+            homePageMainTitle:
+                @if ${isVisible("homePageMainTitleH3")}
+                    #css font-size is "48px"
+                @else
+                    #css font-size is "20px"
+
+        @on tablet
+            homePageMainTitle:
+                @if ${isVisible("homePageMainTitleH3")}
+                    #css font-size is "28px"
+                @else
+                    #css font-size is "20px"                    
+
+        @on mobile
+            homePageMainTitle:
+                @if ${isVisible("homePageMainTitleH3")}
+                    #css font-size is "24px"
+                @else
+                    #css font-size is "16px"
+
+        @on laptop
+            homePageMainTitle:
+                width ~651 px
+                inside screen ${laptopMargin} left
+
+        @on desktop
+            homePageMainTitle:
+                width ~810 px
+                inside screen ${desktopMargin} left
+
+        @on tablet
+            homePageMainTitle:
+                width ~535 px
+                inside screen ${tabletMargin} left
+
+        @on mini-tablet
+            homePageMainTitle:
+                inside screen ${minitabletMargin} left
+                inside viewport ~14px right
+
+        @on mobile
+            homePageMainTitle:
+                inside screen ${mobileMargin} left
+                inside viewport ~37px right
+
+= Homepage Subtitle =
+    | if homePageSubTitle is visible
+        @on *
+            homePageSubTitle:
+                css font-family contains "verta"
+                #css font-style is "normal"
+                #css font-stretch is "normal"
+                #css line-height is "21px"
+                #css text-align is "start"
+                #css color contains "rgba(255, 255, 255"
+                | if homePageMainTitle is visible
+                    aligned vertically left homePageMainTitle
+                    below homePageMainTitle ~20 px
+
+        @on desktop, laptop, mini-tablet, tablet
+            homePageSubTitle:
+                #css font-size is "20px"
+
+        @on mobile
+            homePageSubTitle:
+                #css font-size is "16px"
+
+        @on desktop
+            homePageSubTitle:
+                width ~810 px
+
+        @on laptop
+            homePageSubTitle:
+                width ~651 px
+
+        @on tablet
+            homePageSubTitle:
+                width ~535 px
+
+        @on mini-tablet
+            homePageSubTitle:
+                #inside viewport ~264px right
+
+        @on mobile
+            homePageSubTitle:
+                #inside viewport ~67px right     

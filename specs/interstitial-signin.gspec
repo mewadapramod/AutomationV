@@ -1,0 +1,123 @@
+@import interstitial-react-component-header.gspec
+@script my-methods.js
+@script my-rules.js
+
+@objects
+    passwordInput   xpath   .//input[@name='password']
+    passwordVisibility  .passwordShowHide
+    rememberCheckBox    label[data-react-toolbox='checkbox'] div
+    rememberCheckBoxText    label[data-react-toolbox='checkbox'] span
+    forgotPassword  xpath   .//a[@href='/forgot']
+
+= Sign In =
+    @on *
+        accountComponentTitle:
+            #text is "Sign In"
+            
+= Email =
+    @on tablet
+        emailInput:
+            below accountComponentTitle ~10 px
+
+    @on mini-tablet, mobile
+        emailInput:
+            below accountComponentTitle ~17 px
+
+    @on desktop, laptop
+        emailInput:
+            below accountComponentTitle ~17 px
+
+= Password =
+    @on *
+        passwordInput:
+            height ~${parseFloat("34") + parseFloat(getCssProperty("passwordInput", "padding-top")) + parseFloat(getCssProperty("passwordInput", "padding-bottom"))}px
+            aligned vertically all emailInput
+            css font-family contains "verta"
+            #css font-size is "16px"
+            #css font-style is "normal"
+            #css font-stretch is "normal"
+            #css line-height is "24px"
+            #css text-align is "start"
+            #css color contains "rgba(155, 155, 155"
+            
+        | if "passwordVisibility" is visible
+            passwordVisibility:
+                visible
+                inside partly passwordInput 0px right
+
+    @on tablet
+        passwordInput:
+            below emailInput ~34px
+            inside loginBox ~20px right
+
+    @on desktop, laptop
+        passwordInput:
+            below emailInput ~44px
+            inside loginBox ~30px right
+
+    @on mini-tablet, mobile
+        passwordInput:
+            below emailInput ~44px
+            inside loginBox ~30px right
+
+= Remember Me Container =
+    @on *
+        rememberCheckBox:
+            width ~18 px
+            height ~18 px
+            aligned vertically left accountComponentTitle
+            #css background-color is "rgba(155, 155, 155, 0.54)"
+
+        rememberCheckBoxText:
+            height ~16 px
+            aligned horizontally top rememberCheckBox
+            css font-family contains "verta"
+            #css font-size is "14px"
+            #css font-style is "normal"
+            #css font-stretch is "normal"
+            #css line-height is "18px"
+            #css text-align is "start"
+            #css color contains "rgba(155, 155, 155"
+
+        forgotPassword:
+            height >= 16 px
+            aligned horizontally top rememberCheckBoxText ~4px
+            css font-family contains "verta"
+            #css font-size is "14px"
+            #css font-style is "normal"
+            #css font-stretch is "normal"
+            #css line-height is "24px"
+            #css text-align is "right"
+            #css color contains "rgba(74, 144, 226"
+            aligned vertically right passwordInput 1px
+
+    @on tablet
+        rememberCheckBox:
+            below passwordInput ~27.3 px
+
+        rememberCheckBoxText:
+            right-of rememberCheckBox ~${parseFloat("9.7") - parseFloat(getCssProperty("rememberCheckBoxText", "padding-left")) - parseFloat(getCssProperty("rememberCheckBox", "padding-right"))} px
+
+    @on desktop, laptop, mini-tablet, mobile
+        rememberCheckBox:
+            below passwordInput ~29 px
+
+        rememberCheckBoxText:
+            right-of rememberCheckBox ${parseFloat("8") - parseFloat(getCssProperty("rememberCheckBoxText", "padding-left")) - parseFloat(getCssProperty("rememberCheckBox", "padding-right"))} to ${parseFloat("12") - parseFloat(getCssProperty("rememberCheckBoxText", "padding-left")) - parseFloat(getCssProperty("rememberCheckBox", "padding-right"))} px
+
+= Sign In =
+    @on *
+        submitBtn:
+            aligned vertically all passwordInput 10 px
+            #text is "SIGN IN"
+
+        redirectionLink:
+            #text is "Don't have an Account? Click here"
+
+    @on tablet
+        submitBtn:
+            below rememberCheckBox ~23.7px
+
+    @on desktop, laptop, mini-tablet, mobile
+        submitBtn:
+            below rememberCheckBox ~21px

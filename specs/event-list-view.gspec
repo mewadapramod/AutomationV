@@ -1,0 +1,31 @@
+@import galen-extras/galen-extras-rules.gspec
+@script my-methods.js
+@script my-rules.js
+
+@objects
+	subHeader   div[class*='events-subHeader']
+	eventscontainer 	div[class*='events-eventListContainer'] ul[class*='events-listView']
+		eventlistrows-* 	li
+		
+@set
+    laptopMargin    ~2.5% of screen/width
+    desktopMargin   ~6% of screen/width
+    tabletMargin    ~2.6% of screen/width
+    minitabletMargin    ~0% of screen/width
+    mobileMargin    ~0% of screen/width
+
+= container =
+	@on *
+		eventscontainer:
+			@on laptop
+                inside screen ${laptopMargin} left right
+            @on desktop
+                inside screen ${desktopMargin} left right
+            @on mobile
+                inside screen ${mobileMargin} left right
+
+            below subHeader ~60 px
+
+        | test all eventscontainer.eventlistrows-* with components/events-list-grid-detail.gspec
+        | eventscontainer.eventlistrows-* are aligned vertically above each other with equal distance
+       	

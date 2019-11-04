@@ -1,0 +1,368 @@
+@import galen-extras/galen-extras-rules.gspec
+@import loggedin-header.gspec
+
+@objects
+    invoiceSectionTitle     div[class*='invoice-invoiceDetails'] div[class*='invoice-invoiceSectionsTitle']
+    summaryTableEventNames-*  .accordionSummary div[class*="invoice-accordionContent"] table[class*='invoice-perticularsTable'] tbody tr td:nth-child(2) div
+    activeInvoice   ul.react-listing li[class*='invoice-activeItem'] ul[class*='invoice-balancesList'] li span
+    cost-*  div[class*='accordionSummary'] div[class*='invoice-accordionContent'] table[class*='invoice-perticularsTable'] tbody tr td div span
+    totalTicketAmount   div[class*='invoice-amountTableContainer'] tbody tr:first-child td:nth-child(2) > span
+    totalParkingAmount  xpath   .//div[contains(@class, 'invoice-amountTableContainer')]//tbody//tr[contains(., 'Parking')]//td[2]/span
+    totalHandlingAmount     xpath   .//div[contains(@class, 'invoice-amountTableContainer')]//tbody//tr[contains(., 'Handling')]//td[2]/span
+    amountDue   div[class*='invoice-amountTableContainer'] tbody tr:last-child td:nth-child(2) span
+    otheramounts-*  div[class*='invoice-amountTableContainer'] tbody tr td span
+    inlineDesc  div[class*='accordionSummary'] div[class*='invoice-accordionContent'] > div > div > div:last-child
+    header  .container > .navbar-header
+    dashboardHeader     .sub-header
+    sectionTabs   .sectionTabs
+    promoTiles-*  div[class='form-group'] div[class*='promotile']
+    summary-box     .accordionSummary
+        title  h2[class*="invoice-accordionTitle"]
+            marker  span[class*="invoice-accordionMarker"]
+        content     div[class*="invoice-accordionContent"]
+            invoiceDetailTitletext  div[class*='invoice-invoiceDetailTitleText']
+            invoiceDetailText   div[class*='invoice-invoiceDetailText']
+            hiUser  div[class*="invoice-hiUser"]
+            actionBtns-*  div[class*="invoice-buttonBar"] *
+            continuebtn     button[class*="invoice-buttonBlock"]
+            table   table[class*='invoice-perticularsTable']
+                header  thead
+                body    tbody
+                headers-*   th
+                data-*  tbody tr
+            amountTableContainer    div[class*="invoice-amountTableContainer"]
+                table   table.table
+                    data-*  tbody tr
+            invoiceDetailContainer  div[class*="invoice-invoiceDetailContainer"]
+
+@set
+    laptopMargin    ~2.5% of screen/width
+    desktopMargin   ~6% of screen/width
+    tabletMargin    ~2.6% of screen/width
+    minitabletMargin    ~0% of screen/width
+    mobileMargin    ~0% of screen/width
+
+@script
+    data = ["EMAIL", "PRINT", "EXPRESS PAY"];
+    tableHeaders = ["QUANTITY", "DESCRIPTION", "TOTAL COST"];
+ 
+= Dashboard Header =
+    @on mobile, mini-tablet
+        dashboardHeader:
+            absent
+
+    @on laptop, tablet, desktop
+        dashboardHeader:
+            visible
+
+= Section Tabs =
+    @on *
+        sectionTabs:
+            absent
+
+= Promo Tiles =
+    @on *
+        global:
+            count visible promoTiles-* is 0
+
+= Invoice Details Section Title =
+    @on *
+        | if invoiceSectionTitle is visible
+            invoiceSectionTitle:
+                #text is "Details"
+                css font-family contains "verta"
+                #css font-weight is "500"
+                #css font-style is "normal"
+                #css font-stretch is "normal"
+
+                @on laptop, desktop, tablet
+                    | height ~24 px
+                    css padding-left is "20px"
+                    #css font-size is "20px"
+                    above summary-box ~${parseFloat("16") - parseFloat(getCssProperty("invoiceSectionTitle", "padding-bottom"))} px
+                    aligned vertically all summary-box
+                    @if ${isVisible("dashboardHeader")}
+                        below dashboardHeader ~0 px
+                    @else
+                        below header ~20 px
+
+                @on mobile, mini-tablet
+                    | height ~16 px
+                    aligned vertically centered summary-box
+                    #css font-size is "14px"
+                    #css text-align is "center"
+                    above summary-box ~${parseFloat("14") - parseFloat(getCssProperty("invoiceSectionTitle", "padding-bottom"))} px
+                    @if ${isVisible("dashboardHeader")}
+                        below dashboardHeader ~15 px
+                    @else
+                        below header ~15 px
+                    centered horizontally inside screen
+
+= Summary =
+    @on *
+        summary-box:
+            @on laptop
+                inside screen ${laptopMargin} right
+                width ~750 px
+
+            @on desktop
+                inside screen ${desktopMargin} right
+                width ~930 px
+
+            @on tablet
+                inside screen ${tabletMargin} right
+                width ~617 px
+
+            @on mini-tablet
+                inside screen ${minitabletMargin} left right
+
+            @on mobile
+                inside screen ${mobileMargin} left right
+
+        = Header =
+            summary-box.title:
+                centered horizontally inside summary-box
+                inside summary-box ~0 px top left right
+                height ~60 px
+                text contains "Summary"
+
+            | if "summary-box.title.marker" is visible
+                summary-box.title.marker:
+                    width ~30 px
+                    height ~30 px
+                    inside summary-box.title ~20 px left, ~15 px top bottom
+                    centered vertically inside summary-box.title
+                    css margin-right is "20px"
+
+        = Content =
+            summary-box.content:
+                inside summary-box ~0 px bottom left right
+                below summary-box.title ~0 px
+
+            | if "summary-box.content.invoiceDetailTitletext" is visible
+                summary-box.content.invoiceDetailTitletext:
+                    | height ~16 px
+                    css font-family contains "verta"
+
+                    @on laptop, desktop, tablet
+                        inside summary-box.content ~20 px left
+                        below summary-box.content.table ~38 px
+
+                    @on mobile
+                        inside summary-box.content ~15 px left
+                        below amountDue ~12 px
+
+                    @on mini-tablet
+                        inside summary-box.content ~25 px left
+                        below amountDue ~12 px
+
+                summary-box.content.invoiceDetailText:
+                    #height ~17 px
+                    css font-family contains "verta"
+                    below summary-box.content.invoiceDetailTitletext ~${parseFloat("9") - parseFloat(getCssProperty("summary-box.content.invoiceDetailText", "padding-top"))}px
+                    aligned vertically left summary-box.content.invoiceDetailTitletext 1 px
+
+            summary-box.content.hiUser:
+                height ~24px
+
+                @on laptop, desktop, tablet
+                    inside summary-box.content ~20 px left, ~30 px top
+                    text is "${'Hi ' + CUST_NAME + ','}"
+
+                @on mobile
+                    inside summary-box.content ~15 px left, ~15 px top
+
+                @on mini-tablet
+                    inside summary-box.content ~25 px left, ~15 px top
+
+                css font-family contains "verta"
+                #css font-size is "20px"
+                #css font-weight is "300"
+                #css font-style is "normal"
+                #css font-stretch is "normal"
+
+            inlineDesc:
+                height ~16px
+                aligned vertically left summary-box.content.hiUser
+
+                @on laptop, desktop, tablet
+                    below summary-box.content.hiUser ~6px
+
+                @on mini-tablet, mobile
+                    below summary-box.content.hiUser ~1px
+
+                text is "Here are details for your Invoice."
+                css font-family contains "verta"
+                #css font-size is "14px"
+                #css font-weight is "300"
+                #css font-style is "normal"
+                #css font-stretch is "normal"
+
+            @forEach [summary-box.content.actionBtns-*] as actionBtn, next as nextBtn
+                ${actionBtn}:
+                    @if ${isVisible(actionBtn)}
+                        @if ${isVisible(nextBtn)}
+                            left-of ${nextBtn} ~10 px
+                            aligned horizontally all ${nextBtn} ~1 px
+
+            @on laptop, desktop, tablet
+                | amount of visible summary-box.content.actionBtns-* should be 2 to 3
+
+            @on mobile, mini-tablet
+                | amount of visible summary-box.content.actionBtns-* should be 1
+
+            | first summary-box.content.actionBtns-* :
+                aligned horizontally top summary-box.content.hiUser
+                height ~36px
+                right-of summary-box.content.hiUser > 0 px
+
+                @on mobile
+                    inside summary-box.content ~15 px right
+
+                @on mini-tablet
+                    inside summary-box.content ~25 px right
+
+            | last summary-box.content.actionBtns-* :
+                @on laptop, desktop, tablet
+                    inside summary-box.content ~20 px right
+
+            @forEach [summary-box.content.actionBtns-*] as actionBtn, index as i
+                ${actionBtn}:
+                    | if ${actionBtn} is visible
+                        height ~ 36px
+                        css font-family contains "verta"
+                        #css font-size is "14px"
+                        #css font-weight is "500"
+                        #css font-style is "normal"
+                        #css font-stretch is "normal" 
+                        #css text-align is "center"
+                        text is "${data[i-1]}"
+
+            summary-box.content.continuebtn:
+                @if ${isVisible("summary-box.content.continuebtn")}
+                    height ~36 px
+
+                    @on laptop, desktop, tablet
+                        inside summary-box.content ~20 px right left bottom
+
+                    @on mobile
+                        inside summary-box.content ~15 px right left bottom
+
+                    @on mini-tablet
+                        inside summary-box.content ~25 px right left bottom
+
+                    centered horizontally inside summary-box.content
+                    text is "CONTINUE"
+                    css font-family contains "verta"
+                    #css font-size is "14px"
+                    #css font-weight is "500"
+                    #css font-style is "normal"
+                    #css font-stretch is "normal" 
+                    #css text-align is "center"
+
+            | summary-box.content.table.headers-* are aligned horizontally next to each other with equal distance
+            | amount of visible summary-box.content.table.headers-* should be 3
+
+            | first summary-box.content.table.headers-* :
+                aligned vertically left summary-box.content.hiUser
+
+                @on mobile, mini-tablet
+                    below inlineDesc ~24px
+
+                @on laptop, desktop, tablet
+                    below inlineDesc ~39px
+
+            | last summary-box.content.table.headers-* :
+                @on laptop, desktop, tablet
+                    inside summary-box.content ~20 px right
+
+                @on mobile
+                    inside summary-box.content ~15 px right
+
+                @on mini-tablet
+                    inside summary-box.content ~25 px right
+
+            @forEach [summary-box.content.table.headers-*] as th, index as i
+                ${th}:
+                    | height ~16 px
+                    #text is "${tableHeaders[i-1]}"
+                    css font-family contains "verta"
+                    #css font-size is "14px"
+                    #css font-weight matches "^(bold|700)$"
+                    #css font-style is "normal"
+                    #css font-stretch is "normal"
+
+            | summary-box.content.table.data-* are aligned vertically above each other with equal distance
+            | amount of visible summary-box.content.table.data-* should be > 0
+
+            | first summary-box.content.table.data-* :
+                below summary-box.content.table.header ~0 px
+                aligned vertically all summary-box.content.table.header
+                @on mobile
+                    height >= 50 px
+                @on laptop, desktop, mini-tablet, tablet
+                    height ~50 px
+
+            | test all summary-box.content.table.data-* with components/invoice-summary-detail.gspec
+
+            summary-box.content.amountTableContainer.table:
+                @on laptop, desktop, tablet
+                    inside summary-box.content ~20 px right
+                    below summary-box.content.table.body ~16 px
+
+                @on laptop
+                    width ~339 px
+
+                @on desktop
+                    width ~429 px
+
+                @on tablet
+                    width ~272 px
+
+                @on mobile
+                    inside summary-box.content ~15 px left right
+                    below summary-box.content.table.body ~18 px
+
+                @on mini-tablet
+                    inside summary-box.content ~25 px left right
+                    below summary-box.content.table.body ~18 px
+
+            | summary-box.content.amountTableContainer.table.data-* are aligned vertically above each other with equal distance
+            | amount of visible summary-box.content.amountTableContainer.table.data-* should be >= 3
+
+            | first summary-box.content.amountTableContainer.table.data-* :
+                inside summary-box.content.amountTableContainer.table ~0 px left right top
+                @on laptop, desktop, tablet, mini-tablet
+                    height ~36 px
+                @on mobile
+                    height ~33 px
+
+            | last summary-box.content.amountTableContainer.table.data-* :
+                inside summary-box.content.amountTableContainer.table ~0 px left right bottom
+                @on laptop, desktop, tablet, mini-tablet
+                    height ~41 px
+                @on mobile
+                    height ~36 px
+
+                component components/invoice-total-amount-summary-detail.gspec
+
+            @for [1 - ${count("summary-box.content.amountTableContainer.table.data-*")-1}] as index
+                summary-box.content.amountTableContainer.table.data-${index}:
+                    component components/invoice-amount-summary-detail.gspec
+
+            @on laptop, desktop, tablet
+                amountDue:
+                    text is "${getText('activeInvoice')}"
+                    
+            totalTicketAmount:
+                text is "${TOTAL_TICKET_AMOUNT}"
+
+            | if totalParkingAmount is visible
+                totalParkingAmount:
+                    text is "${PARKING_FEE}"
+
+            | if totalHandlingAmount is visible
+                totalHandlingAmount:
+                    text is "${HANDLING_FEE}"
+
+            | verify amount due is sum of ${currencyIdentifier} otheramounts-*

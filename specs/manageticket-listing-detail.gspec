@@ -1,0 +1,187 @@
+@import galen-extras/galen-extras-rules.gspec
+@script my-methods.js
+@script my-rules.js
+
+@objects
+    promoTiles-*  div[class='form-group'] div[class*='promotile']
+    header      .container > .navbar-header
+    actionbuttons-*     div[class*='ticket-subHeader'] div[class*='ticket-ticketActionButtonSection'] button
+    actionbuttonsmobile-*   div[class*='ticket-ticketButtonRowMobile'] button
+    tickets                .react-root-event  ul[class*='ticketList']
+    ticketslisting-*    .react-root-event  ul[class*='ticketList'] li[class*='ticket-event'] div[class*='ticket-eventInner']
+    ticketlistingmobile     .react-root-event  div[class*='ticket-eventListContainerMobile'] section > div[class*='slick-initialized']
+    scanBarcode     div[class*='ticket-barCode'] svg
+    ticketDetails    button[class*='ticket-detailTicket']
+    subHeader   div[class*='ticket-subHeader']
+        ticketHeader    div[class*='ticket-ticketHeader']
+            eventName   h3
+            details     p
+    footer  .footer
+    ticketpager     div[class*='ticket-eventTicketPagger']
+     
+@set
+    laptopMargin    ~2.5% of screen/width
+    desktopMargin   ~6% of screen/width
+    tabletMargin    ~2.6% of screen/width
+    minitabletMargin    ~4.4% of screen/width
+    mobileMargin    ~4% of screen/width
+
+@script
+    data = ["VIEW", "SEND", "SELL", "DONATE", "more_horiz"];
+
+= Promo Tiles =
+    @on *
+        global:
+            count visible promoTiles-* is 0
+
+= Header =
+    @on desktop, laptop, tablet, mini-tablet
+        subHeader:
+            below header ~0 px
+            inside partly viewport ~0 px left right
+            height ~100 px
+
+        subHeader.ticketHeader.eventName:
+            inside subHeader ~30 px top
+            inside subHeader.ticketHeader ~24 px top, ~15 px left
+            height ~33 px
+            @on laptop
+                inside subHeader ~80 px left
+            @on desktop
+                inside subHeader 100 to 120 px left
+            @on tablet
+                inside subHeader ~46 px left
+            @on mini-tablet
+                inside subHeader ~20 px left
+
+            css font-family contains "verta"
+
+        subHeader.ticketHeader.details:
+            aligned vertically left subHeader.ticketHeader.eventName ~2 px
+            above subHeader.ticketHeader.eventName ~7 px
+            height ~19 px
+            css font-family contains "verta"
+            inside subHeader ~10 px top
+
+= Action Buttons =
+    @on desktop, laptop, tablet, mini-tablet
+        | actionbuttons-* are aligned horizontally next to each other with ~10px margin
+        | every actionbuttons-* has height ~36px
+        | first actionbuttons-* :
+            @on desktop, laptop
+                centered vertically inside subHeader ~10 px
+            @on tablet, mini-tablet
+                centered vertically inside subHeader ~10 px
+
+        | last actionbuttons-* :
+            @on mini-tablet
+                inside viewport ~14 px right
+            @on tablet
+                inside viewport ~27 px right
+            @on laptop
+                inside viewport 60 to 90 px right
+            @on desktop
+                inside viewport 90 to 115 px right
+
+        @forEach [actionbuttons-*] as actionButton, index as i
+            ${actionButton}:
+                #css font-size is "14px"
+                css font-family contains "verta"
+                #css font-style is "normal"
+                #css font-stretch is "normal"
+                #css text-align is "center"
+                #text ends "${data[i-1]}"
+
+    @on mobile
+        | actionbuttonsmobile-* are aligned horizontally prev to each other with ~10px margin
+        | every actionbuttonsmobile-* has height ~40px
+
+        | first actionbuttonsmobile-* :
+            above footer 0 to 35 px
+            inside screen ~${parseFloat("7") + (screen.width() - viewport.width())} px right 
+
+        @forEach [actionbuttonsmobile-*] as actionButton, index as i
+            ${actionButton}:
+                #css font-size is "12px"
+                css font-family contains "verta"
+                #css font-style is "normal"
+                #css font-stretch is "normal"
+                #css text-align is "center"
+                #text ends "${data[i]}"
+            
+= Scan Barcode =
+    @on mobile
+        scanBarcode:
+            @if ${isVisible("scanBarcode")}
+                height ~36px
+                inside screen
+                #css font-size is "14px"
+                css font-family contains "verta"
+                #css font-style is "normal"
+                #css font-stretch is "normal"
+                #css text-align is "center"
+
+= Ticket Details =
+    @on mobile
+        ticketDetails:
+            @if ${isVisible("ticketDetails")}
+                | height ~30 px
+                inside screen
+                #css font-size is "14px"
+                css font-family contains "verta"
+                #css font-style is "normal"
+                #css font-stretch is "normal"
+                #css text-align is "center"
+
+= Check if tickets list is present =
+    @on desktop, laptop, tablet, mini-tablet
+        @if ${isVisible("tickets")}
+            = Tickets List =
+                | amount of visible ticketslisting-* should be > 0
+
+                = Listing =
+                    @on desktop
+                            | ticketslisting-* are rendered in 4 column table layout, with ~30px vertical and ~20px horizontal margin
+                            #| ticketslisting-* should be almost squared 
+                            | every ticketslisting-* has height ~300 px
+                            #| every ticketslisting-* has width ~330 px
+                            | first ticketslisting-* :
+                                inside screen ${desktopMargin} left
+                                below subHeader ~60 px
+
+                    @on laptop
+                            | ticketslisting-* are rendered in 4 column table layout, with ~30px vertical and ~30px horizontal margin
+                            #| ticketslisting-* should be almost squared 
+                            | every ticketslisting-* has height ~300 px
+                            #| every ticketslisting-* has width ~262 px
+                            | first ticketslisting-* :
+                                inside screen ${laptopMargin} left
+                                below subHeader ~60 px
+
+                    @on tablet
+                            | ticketslisting-* are rendered in 3 column table layout, with ~30px vertical and ~30px horizontal margin
+                            | every ticketslisting-* has height ~295 px
+                            #| every ticketslisting-* has width ~293 px  
+                            #| ticketslisting-* should be almost squared
+                            | first ticketslisting-* :
+                                inside screen ${tabletMargin} left 
+                                below subHeader ~60 px
+        
+                    @on mini-tablet
+                            | ticketslisting-* are rendered in 2 column table layout, with ~30px vertical and ~10px horizontal margin
+                            | every ticketslisting-* has height ~326 px
+                            #| every ticketslisting-* has width ~345 px
+                            | first ticketslisting-* :
+                                inside screen ${minitabletMargin} left
+                                below subHeader ~60 px
+
+    @on mobile
+        @if ${isVisible("ticketlistingmobile")}
+            = Ticket =
+                ticketlistingmobile:
+                    height >=306 px
+                    #width ~345 px
+                    inside partly screen ${mobileMargin} right left
+                    below header ~40 px
+                    @if ${isVisible("ticketpager")}
+                        above ticketpager ~0 px

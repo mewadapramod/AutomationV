@@ -1,0 +1,183 @@
+@script my-methods.js
+@script my-rules.js
+
+@objects
+    header .navbar-header
+    #homeHeading .homeHeading
+    tmBanner    xpath   //*[@id="block-iom-main-navigation-block"]
+    homePageMainTitle   xpath   .//div[starts-with(@class, 'home-page-field-main-title')]//*
+    homePageSubTitle    xpath   .//div[starts-with(@class, 'home-page-field-homepage-subtitle')]//*
+    loginBox   section#block-userentrycomponentblock
+    #accountBrandLogo    xpath   .//div[contains(@class, 'brandLogo')]
+    accountAmLogo   div[class*='account-brandBanner']
+    backIcon    i.modal-back-icon
+    accountComponentTitle   div[class*='componentTitle']
+    emailInput  xpath   .//input[@name='email']
+    submitBtn   xpath   .//button[@type='submit']
+    redirectionLink     div[class*='postFormLink'] p
+    crossIcon   span.modal-back-icon
+
+@set
+    laptopMargin    ~35% of screen/width
+    desktopMargin   ~35% of screen/width
+    tabletMargin    ~2.6% of screen/width
+    minitabletMargin    ~26% of screen/width
+    mobileMargin    ~1.8% of screen/width
+
+= Cross Icon =
+    @on tablet, desktop, laptop
+        crossIcon:
+            visible
+
+    @on mini-tablet, mobile
+        crossIcon:
+            visible
+
+
+= Back Icon =
+    @on tablet, desktop, laptop
+        backIcon:
+            absent
+
+    @on mini-tablet, mobile
+        backIcon:
+            absent
+    
+= Login-Box =
+    @on *
+        loginBox:
+            height >= 0 px
+            #css background-color contains "rgba(255, 255, 255, 0.9"
+
+    @on tablet, desktop, laptop
+        loginBox:
+            #css box-shadow is "0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12)"
+            #aligned horizontally top homeHeading
+
+    @on laptop
+        loginBox:
+            below header 40 to 50 px
+
+            | if tmBanner is visible
+                            below tmBanner ~45 px
+
+            # inside screen ${laptopMargin} right
+
+    @on desktop
+        loginBox:
+            below header 40 to 50 px
+
+            | if tmBanner is visible
+                below tmBanner ~45 px
+
+            inside screen ${desktopMargin} right
+
+    @on tablet
+        loginBox:
+            below header 30 to 50 px
+
+            | if tmBanner is visible
+                below tmBanner ~45 px
+
+            inside screen ${tabletMargin} right
+
+    #@on mobile
+    #    mloginBox:
+            #below header ~${parseFloat("10") - parseFloat(getCssProperty("loginBox", "padding-top")) - parseFloat(getCssProperty("header", "padding-bottom"))} px
+            #inside screen ${mobileMargin} left right
+            #inside screen
+
+    @on mini-tablet
+        loginBox:
+            #below header ~${parseFloat("30") - parseFloat(getCssProperty("loginBox", "padding-top")) - parseFloat(getCssProperty("header", "padding-bottom"))} px
+            inside screen ${minitabletMargin} left right
+
+= Account Am Logo =
+    @on *
+        accountAmLogo:
+
+            #width ~191 px
+            #height ~34 px
+            #centered horizontally inside loginBox ~1 px
+            #inside loginBox ~40 px top
+            #css font-family contains "verta"
+            #css font-weight is "300"
+            #css font-style is "normal"
+            #css font-stretch is "normal"
+
+= Account Component Title =
+    @on *
+        accountComponentTitle:
+            height ~40px
+            css font-family contains "verta"
+            #css font-size is "20px"
+            #css font-style is "normal"
+            #css font-stretch is "normal"
+            #css line-height is "20px"
+            #css color contains "rgba(68, 68, 68"
+            below accountAmLogo ~26 px
+
+    @on desktop, laptop
+        accountComponentTitle:
+            inside loginBox ~30px left
+
+    @on tablet
+        accountComponentTitle:
+            inside loginBox ~150px left
+
+    #@on mini-tablet, mobile
+    #    accountComponentTitle:
+    #        inside mloginBox ~25px right
+
+= Email =
+    @on *
+        emailInput:
+            height ~${parseFloat("34") + parseFloat(getCssProperty("emailInput", "padding-top")) + parseFloat(getCssProperty("emailInput", "padding-bottom"))}px
+            aligned vertically left accountComponentTitle
+            css font-family contains "verta"
+            #css font-size is "16px"
+            #css font-style is "normal"
+            #css font-stretch is "normal"
+            #css line-height is "24px"
+            #css text-align is "start"
+            #css color contains "rgba(155, 155, 155"
+
+    @on tablet
+        emailInput:
+            inside loginBox ~210px right
+
+    @on desktop, laptop
+        emailInput:
+            inside loginBox ~25px right
+
+= Submit =
+    @on *
+        submitBtn:
+            height ~36 px
+            #css background-color contains "rgba(72, 136, 255"
+            css font-family contains "verta"
+            #css font-size is "14px"
+            #css font-style is "normal"
+            #css font-stretch is "normal"
+            #css line-height is "36px"
+            #css text-align is "center"
+            #css color contains "rgba(255, 255, 255"
+
+        redirectionLink:
+            height ~16px
+            css font-family contains "verta"
+            #css font-size is "14px"
+            #css font-style is "normal"
+            #css font-stretch is "normal"
+            #css line-height is "24px"
+            #css text-align is "center"
+            #css color contains "rgba(0, 0, 0"
+            aligned vertically centered submitBtn
+
+    @on tablet
+        redirectionLink:
+            below submitBtn ~9px
+
+    @on desktop, laptop, mini-tablet, mobile
+        redirectionLink:
+            below submitBtn ~14px

@@ -1,0 +1,186 @@
+@import galen-extras/galen-extras-rules.gspec
+@script my-methods.js
+@script my-rules.js
+
+@objects
+	review-box     .accordionReview
+        title  h2[class*="invoice-accordionTitle"]
+            marker  span[class*="invoice-accordionMarker"]
+        content     div[class*="invoice-accordionContent"]
+    		reviewTableContainer  div[class*='reviewTableContainer']
+                reviewTableRows-*   div[class*='reviewTableRows']
+                reviewTableDivider  div[class*='reviewTableDivider']
+                reviewTableFinalAmount  div[class*='reviewTableFinalAmount']
+                reviewTableCheckbox     div[class*='reviewTableCheckbox'] div[data-react-toolbox='check']
+                reviewTableCheckboxText     div[class*='reviewTableCheckbox'] p
+            confirmBtn  button[class*="invoice-buttonBlock"]
+            reviewboxpart1-* div[class*='invoice-reviewTableRows']:not([class*='reviewTableFinalAmount']):not([class*='invoice-reviewTableCheckbox'])
+            reviewboxpart1left-* div[class*='invoice-reviewTableRows']:not([class*='reviewTableFinalAmount']):not([class*='invoice-reviewTableCheckbox'])> div:first-child
+            reviewboxpart1right-* div[class*='invoice-reviewTableRows']:not([class*='reviewTableFinalAmount']):not([class*='invoice-reviewTableCheckbox'])> div:last-child
+            reviewboxdivider div[class*='invoice-reviewTableDivider']
+            reviewboxpart2left-* div[class*='invoice-reviewTableRows'][class*='reviewTableFinalAmount'] > div:first-child
+            reviewboxpart2right-* div[class*='invoice-reviewTableRows'][class*='reviewTableFinalAmount'] > div:first-child
+            reviewboxpart2-* div[class*='invoice-reviewTableRows'][class*='reviewTableFinalAmount']
+
+
+@set
+    laptopMargin    ~2.5% of screen/width
+    desktopMargin   ~6% of screen/width
+    tabletMargin    ~2.6% of screen/width
+    minitabletMargin    ~0% of screen/width
+    mobileMargin    ~0% of screen/width
+
+= Review =
+    @on *
+        review-box:
+            @on laptop
+                inside screen ${laptopMargin} right
+                width ~750 px
+
+            @on desktop
+                inside screen ${desktopMargin} right
+                width ~930 px
+
+            @on tablet
+                inside screen ${tabletMargin} right
+                width ~617 px
+
+            @on mini-tablet
+                inside screen ${minitabletMargin} left right
+
+            @on mobile
+                inside screen ${mobileMargin} left right
+
+        = Header =
+            review-box.title:
+                centered horizontally inside review-box
+                inside review-box ~0 px top left right
+
+                height ~60 px
+                text contains "Review"
+
+            | if "review-box.title.marker" is visible
+                review-box.title.marker:
+                    width ~30 px
+                    height ~30 px
+                    inside review-box.title ~20 px left, ~15 px top bottom
+                    centered vertically inside review-box.title
+                    css margin-right is "20px"
+
+        = Content =
+            review-box.content.reviewTableContainer:
+                @on laptop, desktop
+                    inside review-box.content ~20px left top
+                    inside review-box.content ~23px right
+                @on mobile
+                    inside review-box.content ~15px left top right
+
+            review-box.content:
+                @on laptop, desktop
+                    inside review-box ~0 px bottom left right
+                    below review-box.title ~0 px
+                @on mobile
+                    inside review-box ~0 px bottom left right
+                    below review-box.title ~0 px
+
+            review-box.content.reviewboxpart1-*:
+                @on laptop, desktop
+                    inside review-box.content ~1px left right
+                @on mobile
+                    inside review-box.content ~1px left right
+
+            review-box.content.reviewboxpart1left-*:
+                @on laptop
+                    | height ~24 px
+                    width ~369px
+
+                @on desktop
+                    | height ~24 px
+                    width ~459px
+
+                @on mobile
+                    | height ~24 px
+                    #width ~196px
+
+            review-box.content.reviewboxpart1right-*:
+                @on laptop
+                    | height ~24 px
+                    width ~369px
+
+                @on desktop
+                    | height ~24 px
+                    width ~459px
+
+                @on mobile
+                    #| height ~24 px
+                    #width ~137px
+
+            review-box.content.reviewboxpart2-*:
+                @on laptop, desktop, mobile
+                    inside review-box.content ~1px left right
+
+            review-box.content.reviewboxpart2left-*:
+                @on laptop
+                    | height ~24 px
+                    width ~369px
+
+                @on desktop
+                    | height ~24 px
+                    width ~459px
+
+                @on mobile
+                    #| height ~24 px
+                    #width ~196px
+
+            review-box.content.reviewboxpart2right-*:
+                @on laptop
+                    | height ~24 px
+                    width ~369px
+
+                @on desktop
+                    | height ~24 px
+                    width ~459px
+
+                @on mobile
+                    #| height ~24 px
+                    #width ~196px
+
+            review-box.content.reviewboxdivider:
+                @on laptop, desktop
+                    above review-box.content.reviewboxpart2left-1 ~20px
+                @on mobile
+                    above review-box.content.reviewboxpart2left-1 ~20px
+
+            review-box.content.reviewTableCheckbox:
+            @if ${isVisible("review-box.content.reviewTableCheckbox")}
+                @on desktop, laptop
+                    | height ~33px
+                    width ~708px
+                    above review-box.content.confirmBtn ~33px
+                    below review-box.content.reviewboxpart2left-2 ~24px
+                @on mobile
+                    | height ~33px
+                    width ~353px
+                    above review-box.content.confirmBtn ~33px
+                    below review-box.content.reviewboxpart2left-2 ~24px
+
+            review-box.content.confirmBtn:
+                height ~36 px
+
+                @on laptop, desktop, tablet
+                    inside review-box.content ~20 px right left bottom
+
+                @on mobile
+                    inside review-box.content ~15 px right left bottom
+
+                @on mini-tablet
+                    inside review-box.content ~25 px right left bottom
+
+                centered horizontally inside review-box.content
+                text is "CONFIRM"
+                css font-family contains "verta"
+                #css font-size is "14px"
+                #css font-weight is "500"
+                #css font-style is "normal"
+                #css font-stretch is "normal" 
+                #css text-align is "center"

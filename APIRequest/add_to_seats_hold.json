@@ -1,0 +1,25 @@
+{
+	"header": {
+		"ver": 1,
+		"src_sys_type": 2,
+		"src_sys_name": "IOMediaScript",
+		"archtics_version": "$ARCHTICS_VERSION",
+		"session_id": "$SESSION_ID"
+	},
+	"command1": {
+		"cmd": "seats_hold",
+		"count": 1,
+		"dsn": "$DSN",
+		"event_name": "$EVENT_NAME",
+		"ref": "1AB2C3",
+		"site_name": "$SITE_NAME",
+		"order_num_in": "$ORDER_NUM",
+		"ticket_type": [
+			{
+				"num_seats": "$NUM_SEATS",
+				"ticket_type_code": "_A"
+			}
+		],
+		"uid": "$UID"
+	}
+}

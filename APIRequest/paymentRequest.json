@@ -1,0 +1,51 @@
+{
+	"header": {
+		"ver": 1,
+		"src_sys_type": 2,
+		"src_sys_name": "TEST",
+		"archtics_version": "V605",
+		"session_id": "$SESSION_ID"
+	},
+	"command1": {
+		"cmd": "payment_request",
+		"uid": "API_user",
+		"dsn": "genesis",
+		"site_name": "chantilly",
+		"order_num": 17890077,
+		"acct_id": 49167242,
+		"mop": [
+			{
+				"auth_mode": "O",
+				"amount": 358.9,
+				"pmt_type": "VI",
+				"credit_card": {
+					"cc_num": "4321432143214321",
+					"cin": "321",
+					"exp_date": "1016",
+					"first_name": "Julie",
+					"last_name": "Chan",
+					"Avs_address": "121 Main St",
+					"Avs_postal_code": "45022"
+				}
+			}
+		],
+		"willcall": {
+			"name_first": "Julie",
+			"name_last": "Chan",
+			"email": "nicehat@noreply.com",
+			"comment": ""
+		},
+		"cart_items": [
+			{
+				"order_line_item": "1",
+				"dm_code": ""
+			}
+		],
+		"service_charges": [
+			{
+				"sc_id": 40727,
+				"amount": "17.9"
+			}
+		]
+	}
+}

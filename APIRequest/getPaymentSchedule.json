@@ -1,0 +1,18 @@
+{
+	"header": {
+		"ver": 1,
+		"src_sys_type": 2,
+		"src_sys_name": "testing",
+		"archtics_version": "V608",
+		"session_id": "$SESSION_ID"
+	},
+	"command1": {
+		"cmd": "payment_schedule",
+		"ref": "456",
+		"uid": "INET01",
+		"dsn": "genesis",
+		"acct_id": "10116",
+		"invoice_id": "3040",
+		"payment_plan_id": "24"
+	}
+}

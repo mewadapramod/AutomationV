@@ -1,0 +1,125 @@
+@script my-methods.js
+@script my-rules.js
+
+@objects
+	dashboardHeader .sub-header
+	sectionTabs 	.sectionTabs
+	eventHeader	.dashboard-eventslist > div:first-child
+    eventsList	.dashboard-eventslist
+    	sectionTitle	.sectionTitle
+    	viewAllBtn	.viewAllBtn
+    	listingBox	.react-root-event-dashboard ul
+		listing-*	.react-root-event-dashboard div div ul li a div div img
+
+@set
+    laptopMargin    ~2.5% of screen/width
+    desktopMargin   ~6% of screen/width
+    tabletMargin    ~2.6% of screen/width
+    minitabletMargin    ~4.4% of screen/width
+    mobileMargin    ~4% of screen/width
+
+= Manage Tickets Header =
+	| eventHeader should be visible on desktop, laptop, tablet but absent on mobile, mini-tablet
+
+	@on desktop, laptop, tablet
+		= Header =
+			eventHeader:
+				below dashboardHeader ~0 px
+				height ~60px
+				aligned vertically left eventsList.listing-1 ~20px
+				above eventsList.listing-1 ~0 px
+				#aligned vertically right eventsList.listing-2 ~10px
+				above eventsList.listing-2 ~0 px
+
+				@on desktop
+					inside screen ${desktopMargin} left
+
+				@on laptop
+					inside screen ${laptopMargin} left
+
+				@on tablet
+					inside screen ${tabletMargin} left
+
+		= Section Title =
+			eventsList.sectionTitle:
+				@if ${isVisible("eventsList.sectionTitle")}
+					#text is "Manage Ticket"
+					centered vertically inside eventHeader ~5px
+					inside eventHeader ~20 px left
+					css font-family contains "verta"
+					#css font-size is "20px"
+					#css font-weight is "500"
+					#css font-style is "normal"
+					#css font-stretch is "normal"
+
+		= View All =
+			eventsList.viewAllBtn:
+				#text is "VIEW ALL"
+				centered vertically inside eventHeader ~5px
+				inside eventHeader ~20 px right
+				height ~40 px
+				css font-family contains "verta"
+				#css font-size is "14px"
+				#css font-weight is "500"
+				#css font-style is "normal"
+				#css font-stretch is "normal"
+				#css text-align is "right"
+				@if ${isVisible("eventsList.sectionTitle")}
+					aligned horizontally centered eventsList.sectionTitle ~5px
+
+= Check if events list is present =
+	@if ${isVisible("eventsList.listingBox")}
+		= Events List =
+			| amount of visible eventsList.listing-* should be 1 to 4
+
+			@on tablet, mini-tablet
+				= Listing =
+					| eventsList.listing-* are rendered in 2 column table layout, with ~30px vertical and ~30px horizontal margin
+
+            @on laptop, desktop
+           		= Listing =
+   					| eventsList.listing-* are rendered in 2 column table layout, with ~90px vertical and ~30px horizontal margin
+
+
+			@on mini-tablet
+				= Listing =
+					| every eventsList.listing-* has height ~176 px
+					| every eventsList.listing-* has width ~345 px
+					| first eventsList.listing-* :
+						inside screen ${minitabletMargin} left
+						below sectionTabs ~30 px
+
+			@on mobile
+				= Listing =
+					| eventsList.listing-* are aligned vertically above each other with ~10px margin
+					| every eventsList.listing-* has height ~180 px
+					#| every eventsList.listing-* has width ~345 px
+					| first eventsList.listing-* :
+						inside screen ${mobileMargin} left
+						below sectionTabs ~30 px
+
+			@on laptop
+				= Listing =
+					| every eventsList.listing-* has height ~210 px
+					| every eventsList.listing-* has width ~361 px
+					| first eventsList.listing-* :
+						inside screen ${laptopMargin} left
+						below eventHeader ~0 px
+
+			@on desktop
+				= Listing =
+					| every eventsList.listing-* has height ~255 px
+					| every eventsList.listing-* has width ~450 px
+					| first eventsList.listing-* :
+						inside screen ${desktopMargin} left
+						below eventHeader ~0 px
+
+			@on tablet
+				= Listing =
+					| every eventsList.listing-* has height ~150 px
+					| every eventsList.listing-* has width ~293 px
+					| first eventsList.listing-* :
+						inside screen ${tabletMargin} left
+						below eventHeader ~0 px
+
+			| test all eventsList.listing-* with components/ticket-listing-detail.gspec			

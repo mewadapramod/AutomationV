@@ -1,0 +1,148 @@
+@import loggedin-header.gspec
+
+@objects
+    dashboardHeader .sub-header
+    reactDashboardHeader    .sub-header section
+    groups-*    .react-root-dashboard-header > div > div[class*='styles-dashboardHeader-'] > div > div
+    group-1-*   .react-root-dashboard-header > div > div[class*='styles-dashboardHeader-'] > div > div:first-child
+    group-2-*   .react-root-dashboard-header > div > div[class*='styles-dashboardHeader-'] > div > div:nth-child(2)
+    group-3-*   .react-root-dashboard-header > div > div[class*='styles-dashboardHeader-'] > div > div:last-child
+    welcome-text    .react-root-dashboard-header > div > div > div:first-child > p:first-child
+    account-id    .react-root-dashboard-header > div > div > div:first-child > p:last-child
+    account-name    .react-root-dashboard-header > div > div > div > div:first-child > h3
+    manage-tickets-label    .react-root-dashboard-header > div > div > div:nth-child(2) > p:first-child
+    tickets-available    .react-root-dashboard-header > div > div > div:nth-child(2) > p:last-child
+    account-balance-label   .react-root-dashboard-header > div > div > div:last-child > p:first-child
+    outstanding-invoices    .react-root-dashboard-header > div > div > div:last-child > p:last-child
+    cwelcome-text-*     p[class*='welcomeText']
+    cname-*     h3[class*='styles-name']
+    caccountId-*   p[class*='accountID']
+    
+= Dashboard Header =
+    | if dashboardHeader is visible
+        @on *
+            dashboardHeader:
+                below header ~0 px
+                inside partly viewport ~0 px left right
+
+            reactDashboardHeader:
+                @on laptop, desktop, tablet
+                    centered all inside dashboardHeader
+                @on mobile
+                    inside dashboardHeader ~0 px top left right
+                @on mini-tablet
+                    inside dashboardHeader ~0 px top, ~14 px left right
+                height 90 to 121 px
+
+            global:
+                @on mobile, mini-tablet
+                    count visible groups-* is 1
+
+                @on laptop, desktop, tablet
+                    count visible groups-* is 3
+
+        @on laptop, desktop, tablet
+            @forEach [groups-*] as group, next as nextGroup
+                ${group}:
+                    aligned horizontally top ${nextGroup}
+                    left-of ${nextGroup} ~0 px
+
+        @on *
+            | if "groups-1" is visible
+                @forEach [group-1-*] as elems, next as nextElems
+                    ${elems}:
+                        aligned vertically all ${nextElems}
+                        above ${nextElems} ~0 px
+
+                global:
+                    count visible group-1-* is 3
+
+            | if "groups-2" is visible
+                @forEach [group-2-*] as elems, next as nextElems
+                    ${elems}:
+                        aligned vertically all ${nextElems}
+                        above ${nextElems} ~0 px
+                global:
+                    count visible group-2-* is 2 to 3
+
+            | if "groups-3" is visible
+                @forEach [group-3-*] as elems, next as nextElems
+                    ${elems}:
+                        aligned vertically all ${nextElems}
+                        above ${nextElems} ~0 px
+                global:
+                    count visible group-3-* is 2 to 3
+
+            @forEach [cwelcome-text-*] as welcomeText, index as i
+                ${welcomeText}:
+                    | if ${welcomeText} is visible
+                        height ~21 px
+                        css font-family contains "verta"
+                        #css font-size is "16px"
+                        #css font-weight matches "^(normal|400)$"
+                        #css font-style is "normal"
+                        #css font-stretch is "normal"
+
+            @forEach [cname-*] as nameText, index as i
+                ${nameText}:
+                    | if ${nameText} is visible
+                        height ~33 px
+                        css font-family contains "verta"
+                        #css font-size is "24px"
+                        #css font-weight is "500"
+                        #css font-style is "normal"
+                        #css font-stretch is "normal"
+
+            @forEach [caccountId-*] as accountIdText, index as i
+                ${accountIdText}:
+                    | if ${accountIdText} is visible
+                        height ~16 px
+                        css font-family contains "verta"
+                        #css font-size is "16px"
+                        #css font-weight matches "^(normal|400)$"
+                        #css font-style is "normal"
+                        #css font-stretch is "normal"
+
+= Welcome Text =
+    | if "groups-1" is visible
+        @on *
+            welcome-text:
+                text is "Welcome,"
+
+= Account name =
+    | if dashboardHeader is visible
+        @on laptop, desktop, tablet
+            account-name:
+                text is "${CUST_NAME}"
+
+= Manage Tickets Label =
+    | if "groups-2" is visible
+        @on *
+            manage-tickets-label:
+                #text is "Manage Tickets"
+
+= Account Balance Label =
+    | if "groups-3" is visible
+        @on *
+            account-balance-label:
+                #text is "Account Balance"
+
+= Account Id =
+    | if "groups-1" is visible
+        @on *
+            account-id:
+                #text starts "Account"
+
+= Total Tickets Available =
+    | if "groups-2" is visible
+        @on *
+            tickets-available:
+                @if ${isVisible("tickets-available")}
+                    #text ends "Tickets Total"
+
+= Outstanding Invoices Count =
+    | if "groups-3" is visible
+        @on *
+            outstanding-invoices:
+                @if ${isVisible("outstanding-invoices")}
+                    #text ends "Outstanding Invoices"

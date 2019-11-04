@@ -1,0 +1,116 @@
+@script my-methods.js
+@script my-rules.js
+
+@objects
+	dashboardHeader .sub-header
+	sectionTabs 	.sectionTabs
+	invoiceHeader	.dashboard-invoicelist > div:first-child
+	body 	body
+    invoiceList 	.dashboard-invoicelist
+    	sectionTitle	.sectionTitle
+    	viewAllBtn	.viewAllBtn
+    	listingBox	.react-root-invoice-dashboard ul.react-listing
+			listing-*	 li.list-item
+
+@set
+    laptopMargin    ~2.5% of screen/width
+    desktopMargin   ~6% of screen/width
+    tabletMargin    ~2.6% of screen/width
+    minitabletMargin    ~4.4% of screen/width
+    mobileMargin    ~4% of screen/width
+
+
+= Invoice Header =
+	| invoiceHeader should be visible on desktop, laptop, tablet but absent on mobile, mini-tablet
+
+	@on desktop, laptop, tablet
+		= Header =
+			invoiceHeader:
+				below dashboardHeader ~0 px
+				height ~60px
+				aligned vertically all invoiceList.listingBox.listing-1 ~17px
+				above invoiceList.listingBox.listing-1 ~0 px
+
+				@on desktop
+					inside screen ${desktopMargin} right
+
+				@on laptop
+					inside screen ${laptopMargin} right
+
+				@on tablet
+					inside screen ${tabletMargin} right
+
+		= Section Title =
+			invoiceList.sectionTitle:
+				@if ${isVisible("invoiceList.sectionTitle")}
+					#text is "Invoices"
+					centered vertically inside invoiceHeader ~5px
+					inside invoiceHeader ~20 px left
+					css font-family contains "verta"
+					#css font-size is "20px"
+					#css font-weight is "500"
+					#css font-style is "normal"
+					#css font-stretch is "normal"
+
+		= View All =
+			invoiceList.viewAllBtn:
+				#text is "VIEW ALL"
+				centered vertically inside invoiceHeader ~5px
+				inside invoiceHeader ~20 px right
+				height ~40 px
+				css font-family contains "verta"
+				#css font-size is "14px"
+				#css font-weight is "500"
+				#css font-style is "normal"
+				#css font-stretch is "normal"
+				#css text-align is "right"
+				@if ${isVisible("invoiceList.sectionTitle")}
+					aligned horizontally centered invoiceList.sectionTitle ~5px
+
+= Check if invoice list is present =
+	@if ${isVisible("invoiceList.listingBox")}
+		= Invoice List =
+			| amount of visible invoiceList.listingBox.listing-* should be 0 to 4
+
+			= Listing =
+				@on desktop
+					| invoiceList.listingBox.listing-* are aligned vertically above each other with ~30px margin
+					| every invoiceList.listingBox.listing-* has height ~90 px
+					| every invoiceList.listingBox.listing-* has width ~${parseFloat("450") - getScrollbarWidth("invoiceList.listingBox", "invoiceList.listingBox.listing-1")} px
+					| first invoiceList.listingBox.listing-* :
+						inside screen ${desktopMargin} right
+						below invoiceHeader ~0 px
+
+				@on laptop
+					| invoiceList.listingBox.listing-* are aligned vertically above each other with ~15px margin
+					| every invoiceList.listingBox.listing-* has height ~88 px
+					| every invoiceList.listingBox.listing-* has width ~${parseFloat("360") - getScrollbarWidth("invoiceList.listingBox", "invoiceList.listingBox.listing-1")} px
+					| first invoiceList.listingBox.listing-* :
+						inside screen ${laptopMargin} right
+						below invoiceHeader ~0 px
+
+				@on tablet
+					| invoiceList.listingBox.listing-* are aligned vertically above each other with ~14px margin
+					| every invoiceList.listingBox.listing-* has height ~72 px
+					| every invoiceList.listingBox.listing-* has width ~${parseFloat("294") - getScrollbarWidth("invoiceList.listingBox", "invoiceList.listingBox.listing-1")} px
+					| first invoiceList.listingBox.listing-* :
+						inside screen ${tabletMargin} right
+						below invoiceHeader ~0 px
+
+				@on mobile
+					| invoiceList.listingBox.listing-* are aligned vertically above each other with ~10px margin
+					| every invoiceList.listingBox.listing-* has height ~110 px
+					#| every invoiceList.listingBox.listing-* has width ~${parseFloat("345") - getScrollbarWidth("body", "invoiceList.listingBox.listing-1")} px
+					| first invoiceList.listingBox.listing-* :
+						inside partly screen ${mobileMargin} right left
+						below sectionTabs ~25 px
+
+				@on mini-tablet
+					| invoiceList.listingBox.listing-* are rendered in 2 column table layout, with ~10px vertical and ~10px horizontal margin
+					| every invoiceList.listingBox.listing-* has height ~90 px
+					| every invoiceList.listingBox.listing-* has width ~${parseFloat("345") - getScrollbarWidth("body", "invoiceList.listingBox.listing-1")} px
+					| first invoiceList.listingBox.listing-* :
+						inside screen ${minitabletMargin} left
+						below sectionTabs ~25 px
+
+				| test all invoiceList.listingBox.listing-* with components/invoice-listing-detail.gspec

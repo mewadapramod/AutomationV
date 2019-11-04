@@ -1,0 +1,12 @@
+@import galen-extras/galen-extras-rules.gspec
+@import dashboard-header.gspec
+@import section-headers-mobile.gspec
+@import dashboard-tickets.gspec
+
+@objects
+    promoTiles-*  div.form-group div[class*='promotile']
+
+= Promo Tiles =
+	@on mobile, mini-tablet
+        global:
+            count visible promoTiles-* is 0

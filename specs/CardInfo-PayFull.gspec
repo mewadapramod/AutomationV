@@ -1,0 +1,64 @@
+@objects
+	addCardBtn 		button[class*='invoice-addCardButton']
+	cardCheck-* 	.accordionCard label
+	cardDetail-* 	span[class*='invoice-bankCardLabelText']
+	continueBtn 	.accordionCard button[class*='invoice-buttonBlock']
+	cardIcon-* 		span[class*='invoice-bankCardLabelImage']
+	cardContainer 	.accordionCard
+
+= CardTab =
+	@on *
+		@forEach [cardCheck-*] as check, next as nextCheck
+   		 	${check}:
+   		 		aligned vertically all ${nextCheck}
+
+	@on mobile, tablet			
+		@forEach [cardCheck-*] as checkbox
+			${checkbox}:
+				inside cardContainer ~23px left
+
+	@on desktop, laptop
+		@forEach [cardCheck-*] as checkbox
+			${checkbox}:
+				inside cardContainer ~25px left
+
+= CardIcon =
+	@on *
+		@forEach [cardIcon-*] as icon, next as nextIcon
+   		 	${nextIcon}:
+   		 		width ~48px
+   		 		height ~30px
+   		 		aligned vertically all ${nextIcon}
+   		 		inside cardContainer ~56px left
+
+= CardDetail =
+	@on *
+		@forEach [cardDetail-*] as detail, next as nextCard
+   		 	${detail}:
+   		 		css font-family contains "verta"
+   		 		aligned vertically all ${nextCard}
+   		 		
+= Continue_Button =
+	@on desktop, laptop
+		continueBtn:
+			height ~36px
+			inside cardContainer ~20px left
+			css font-family contains "verta"
+			#css font-size is "14px"
+			#css font-weight is "500"
+			#css font-style is "normal"
+			#css font-stretch is "normal"
+			#css text-align is "center"
+
+    @on mobile, tablet, mini-tablet
+    	continueBtn:
+    		inside cardContainer ~15px left
+
+= AddCard_Button =
+	@on *
+		addCardBtn:
+			css font-family contains "verta"
+			#css font-size is "16px"
+			#css font-weight is "500"
+			#css font-style is "normal"
+			#css font-stretch is "normal"

@@ -1,0 +1,37 @@
+{
+	"payout_method": "account_credit",
+	"expiration_offset": -1440,
+	"is_allow_splits": false,
+	"pricing_model": "fixed",
+	"event": {
+		"event_id": "1062"
+	},
+	"payout_price": {
+		"currency": "USD",
+		"value": 4500
+	},
+	"seat_descriptions": [
+		{
+			"description": "End Zone seats",
+			"required": false
+		}
+	],
+	"sections": [
+		{
+			"section_name": "102",
+			"rows": [
+				{
+					"row_name": "E",
+					"tickets": [
+						{
+							"ticket_id": "1062.102.E.19"
+						},
+						{
+							"ticket_id": "1062.102.E.20"
+						}
+					]
+				}
+			]
+		}
+	]
+}

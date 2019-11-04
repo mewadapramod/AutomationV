@@ -1,0 +1,28 @@
+@import galen-extras/galen-extras-rules.gspec
+@import dashboard-header.gspec
+@import promotiles.gspec
+@import dashboard-tickets.gspec
+@import dashboard-invoices.gspec
+@import section-headers-mobile.gspec
+
+@objects
+    promoTiles-*  div[class='form-group'] div[class*='promotile']
+    quickLinks 	h2.block-title
+    eventsList	.dashboard-eventslist
+    sectionTitle	.sectionTitle
+
+= Distance between manage tickets block and invoices block =
+	@on desktop, laptop, tablet
+		eventHeader:
+			aligned horizontally all invoiceHeader
+			left-of invoiceHeader ~30 px
+
+		quickLinks:
+			height ~24 px
+			@if ${isVisible("eventsList.sectionTitle")}
+				aligned vertically left eventsList.sectionTitle ~${parseFloat("0") + parseFloat(getCssProperty("quickLinks", "padding-left"))}px
+			#text is "Quick Links"
+			css font-family contains "AvertaPeRegular"
+
+		| first promoTiles-*:
+			below quickLinks ~16 px

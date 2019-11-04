@@ -1,0 +1,46 @@
+{
+	"header": {
+		"ver": 1,
+		"src_sys_type": 2,
+		"src_sys_name": "IOMediaScript",
+		"archtics_version": "$ARCHTICS_VERSION",
+		"session_id": "$SESSION_ID"
+	},
+	"command1": {
+		"acct_id": "$ACCT_ID",
+		"payment_plan_id": "$PAYMENT_PLAN_ID",
+		"cart_items": [
+			{
+				"dm_code": "TF",
+				"order_line_item": 1
+			}
+		],
+		"cmd": "payment_request",
+		"dsn": "$DSN",
+		"ext_trans_id": "EB1003",
+		"mop": [
+			{
+				"amount": "$AMOUNT",
+				"auth_mode": "$AUTH_MODE",
+				"credit_card": {
+					"cc_num": "$CC_NUM",
+					"cin": "$CIN",
+					"exp_date": "0922",
+					"first_name": "John",
+					"last_name": "Cena"
+				},
+				"mop_details": {
+					"destination_property": "AKC",
+					"outlet_code": "100",
+					"source_property": "AKC"
+				},
+				"pmt_type": "VI"
+			}
+		],
+		"invoice_id": "$INVOICE_ID",
+		"calling_reason": "P",
+		"ref": "1AB2C3",
+		"site_name": "$SITE_NAME",
+		"uid": "$UID"
+	}
+}

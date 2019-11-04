@@ -1,0 +1,15 @@
+{
+	"invites": [
+		{
+			"note": "Have fun at the game! - Automation",
+			"seatIds": [
+				"1066.125.WCW.2"
+			],
+			"recipient": {
+				"email": "asds@ticketmaster.com",
+				"firstName": "Test",
+				"lastName": "Auto"
+			}
+		}
+	]
+}

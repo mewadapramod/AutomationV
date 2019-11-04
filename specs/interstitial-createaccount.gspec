@@ -1,0 +1,129 @@
+@import interstitial-react-component-header.gspec
+@script my-methods.js
+@script my-rules.js
+
+@objects
+    passwordInput   xpath   .//input[@name='password']
+    passwordVisibility  .passwordShowHide
+    input-fields-*    xpath   .//form//div[@class='container-fluid']//input[@role='input']
+    terms-condition-link    div[class*='midFormLink'] div p
+    
+= Create Account =
+    @on *
+        accountComponentTitle:
+            visible
+
+= Input Fields =
+    @on *
+        @forEach [input-fields-*] as inputField, next as nextInputField
+            ${inputField}:
+                @if ${isVisible(inputField)}
+                    | height ~34 px
+                    @if ${isVisible(nextInputField)}
+                        @if ${find(inputField).width() < 200}
+                            @if ${find(inputField).width() === find(nextInputField).width()}
+                                aligned horizontally all ${nextInputField}
+                                @on desktop, laptop, tablet
+                                    left-of ${nextInputField} ~30px
+                                @on mobile, mini-tablet
+                                    left-of ${nextInputField} ~10px
+                                width 100% of ${nextInputField}/width
+                            @else
+                                aligned vertically right ${nextInputField} ~1 px
+                                @on tablet
+                                    above ${nextInputField} ~34 px
+                                @on desktop, laptop, mini-tablet, mobile
+                                    above ${nextInputField} ~44 px
+                        @else
+                            @on tablet
+                                above ${nextInputField} ~34 px
+                            @on desktop, laptop, mini-tablet, mobile
+                                above ${nextInputField} ~44 px
+                            width 100% of ${nextInputField}/width
+                            aligned vertically all ${nextInputField}
+                            aligned vertically left accountComponentTitle
+
+                    css font-family contains "verta"
+                    #css font-size is "16px"
+                    #css font-style is "normal"
+                    #css font-stretch is "normal"
+                    #css line-height is "24px"
+                    #css text-align is "start"
+                    #css color contains "rgba(68, 68, 68"
+
+        input-fields-1:            
+            aligned vertically left accountComponentTitle
+            @on tablet
+                below accountComponentTitle ~10 px
+
+            @on mini-tablet, mobile
+                below accountComponentTitle ~17 px
+
+            @on desktop, laptop
+                below accountComponentTitle ~17 px
+
+= Password =
+    @on *
+        | if "passwordVisibility" is visible
+            passwordVisibility:
+                visible
+                inside partly passwordInput 0px right
+
+    @on tablet
+        passwordInput:
+            inside loginBox ~19px right
+
+    @on desktop, laptop
+        passwordInput:
+            inside loginBox ~30px right
+
+    @on mini-tablet, mobile
+        passwordInput:
+            inside loginBox ~30px right
+
+= Terms & Conditions =
+    @on *
+        terms-condition-link:
+            visible
+            #text is "By creating an account, you agree to our Terms and Conditions"
+            aligned vertically left passwordInput 10 px
+            height ~25px
+            css font-family contains "verta"
+            #css font-size is "12px"
+            #css font-style is "normal"
+            #css font-stretch is "normal"
+            #css line-height is "17px"
+            #css color contains "rgba(68, 68, 68"
+            aligned vertically left accountComponentTitle 10 px
+
+    @on tablet
+        terms-condition-link:
+            above submitBtn ~9px
+            inside loginBox ~20px right
+
+    @on desktop, laptop
+        terms-condition-link:
+            above submitBtn 10 to 25px
+            inside loginBox ~30px right
+
+    @on mini-tablet, mobile
+        terms-condition-link:
+            above submitBtn 7 to 17px
+            inside mloginBox ~15px right
+
+= Create Account =
+    @on *
+        submitBtn:
+            aligned vertically all passwordInput 10 px
+            #text is "SIGN UP"
+
+        redirectionLink:
+            #text is "Already have an account? Click here"
+
+    @on tablet
+        submitBtn:
+            below terms-condition-link ~9px
+
+    @on desktop, laptop, mini-tablet, mobile
+        submitBtn:
+            below terms-condition-link ~17px

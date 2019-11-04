@@ -1,0 +1,45 @@
+@script ../my-methods.js
+@script ../my-rules.js
+@import ../galen-extras/galen-extras-rules.gspec
+
+@objects
+	td-*	td
+	label	td
+	amount	td span
+
+= Invoice Listing Detail Section =
+	@on *
+		| td-* are aligned horizontally next to each other with equal distance
+
+		label:
+			@on mobile, mini-tablet
+				| height ~21 px
+			@on desktop, laptop, tablet
+				| height ~26 px
+				
+			css font-family contains "verta"
+			#css font-size is "18px"
+			#css font-weight matches "^(bold|700)$"
+			#css font-style is "normal"
+			#css font-stretch is "normal"
+			inside parent ~${parseFloat("8") - parseFloat(getCssProperty("label", "padding-left"))} px left
+			inside parent ~${parseFloat("8") - parseFloat(getCssProperty("label", "padding-top"))} px top
+			#text is "AMOUNT DUE"
+		
+		amount:
+			@on mobile, mini-tablet
+				| height ~16 px
+			@on desktop, laptop, tablet
+				| height ~21 px
+
+			css font-family contains "verta"
+			#css font-size is "24px"
+			#css font-weight matches "^(bold|700)$"
+			#css font-style is "normal"
+			#css font-stretch is "normal"
+			#css text-align is "right"
+			text starts "${currencyIdentifier}"
+			inside parent ~${parseFloat("8") - parseFloat(getCssProperty("amount", "padding-top"))} px top
+			inside parent ~${parseFloat("8") - parseFloat(getCssProperty("amount", "padding-right"))} px right
+			aligned horizontally centered label ~2 px
+			right-of label > 0 px

@@ -1,0 +1,17 @@
+{
+	"header": {
+		"ver": 1,
+		"src_sys_type": 2,
+		"src_sys_name": "IOMEDIA",
+		"archtics_version": "$ARCHTICS_VERSION",
+		"session_id": "$SESSION_ID"
+	},
+	"command1": {
+		"cmd": "invoice_upsells",
+		"ref": "456",
+		"uid": "$UID",
+		"dsn": "$DSN",
+		"acct_id": "$ACCT_ID",
+		"invoice_id": "6398"
+	}
+}

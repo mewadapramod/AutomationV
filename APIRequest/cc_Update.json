@@ -1,0 +1,27 @@
+{
+	"header": {
+		"ver": 1,
+		"src_sys_type": 2,
+		"src_sys_name": "IOMediaScript",
+		"archtics_version": "$ARCHTICS_VERSION",
+		"session_id": "$SESSION_ID"
+	},
+	"command1": {
+		"cmd": "cc_update",
+		"ref": "IOM_CC_UPDATE",
+		"uid": "$UID",
+		"dsn": "$DSN",
+		"site_name": "$SITE_NAME",
+		"acct_id": "$ACCT_ID",
+		"cc_num": "$CC_NUM",
+		"cc_type": "VI",
+		"cc_exp": "0922",
+		"action": "X",
+		"generate_pid": "Y",
+		"display_on_inet": "Y",
+		"avs_first_name": "Dana",
+		"avs_last_name": "Hammer",
+		"avs_address": "640 W. 28th",
+		"avs_postal_code": "10001"
+	}
+}

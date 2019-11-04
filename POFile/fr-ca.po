@@ -1,0 +1,1028 @@
+
+# French - FR translation of Ticketmaster
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2017-12-04 04:09-0500\n"
+"PO-Revision-Date: 2018-01-18 04:09-0500\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Terms of Use"
+msgstr "Conditions d'utilisation"
+
+msgid "Privacy Policy"
+msgstr "Politique de confidentialité"
+
+msgid "All rights reserved."
+msgstr "Tous droits réservés."
+
+msgid "Copyright"
+msgstr "Droits d'auteur"
+
+msgid "Page Not Found"
+msgstr "Page introuvable"
+
+msgid "Looks like you got lost"
+msgstr "Oh, oh! Vous vous êtes égaré."
+
+msgid "We're sorry. The page you are looking for no longer exists."
+msgstr "Nous sommes désolés. La page que vous cherchez n’existe plus."
+
+msgid "BACK TO HOME"
+msgstr "RETOUR À LA PAGE D'ACCUEIL"
+
+msgid "Access Denied"
+msgstr "Accès refusé"
+
+msgid "The page you were trying to access is locked."
+msgstr "La page à laquelle vous souhaitez accéder est verrouillée."
+
+msgid "Make sure you typed in the correct URL. You will be redirected to the homepage in 10 seconds."
+msgstr "Assurez-vous que vous avez bien saisi l'URL. Vous serez redirigé vers la page d'accueil dans 10 secondes."
+
+msgid "View all"
+msgstr "Voir Tout"
+
+msgid "Balance Due"
+msgstr "Montant dû"
+
+msgid "Log entry with ID @id was not found"
+msgstr "L'entrée de journal avec @id n'a pas été trouvée"
+
+msgid "Confirm New Password"
+msgstr "Confirmer mon nouveau mot de passe"
+
+msgid "No Invoice Data available"
+msgstr "Les données de la facture ne sont pas disponibles"
+
+msgid "Thank You for your payment"
+msgstr "Merci pour votre achat"
+
+msgid "Claim Tickets"
+msgstr "Réclamer les billets"
+
+msgid "Outstanding Invoices"
+msgstr "Factures impayées"
+
+msgid "Amount Balance"
+msgstr "Solde"
+
+msgid "Tickets Total"
+msgstr "Total des billets"
+
+msgid "Account"
+msgstr "Compte"
+
+msgid "AccountID"
+msgstr "Numéro de compte"
+
+msgid "welcome"
+msgstr "bienvenue"
+
+msgid "Account Name"
+msgstr "Nom du compte"
+
+msgid "Give your account a nickname"
+msgstr "Utiliser un alias pour mon compte"
+
+msgid "Edit Account Names"
+msgstr "Modifier le nom du compte"
+
+msgid "SWITCH"
+msgstr "CHANGER"
+
+msgid "EDIT NAME"
+msgstr "MODIFIER LE NOM"
+
+msgid "Select from one of the accounts below"
+msgstr "Choisissez l'un des comptes ci-dessous"
+
+msgid "SEAT"
+msgstr "SIÈGE"
+
+msgid "Please ensure your popup blocker is disabled in order to view your tickets."
+msgstr "Veuillez vérifier que votre bloqueur de fenêtre est désactivé afin d’afficher vos billets."
+
+msgid "Don't see them? "
+msgstr "Vous ne les voyez pas? "
+
+msgid "Please confirm that you wish to cancel your ticket posting."
+msgstr "Veuillez confirmer que vous souhaitez bien annuler la publication de vos billets."
+
+msgid "*The list price for your ticket(s) will be"
+msgstr "* Le prix affiché pour votre billet est de"
+
+msgid "Tickets Claimed"
+msgstr "Billets réclamés"
+
+msgid "*This will expire on"
+msgstr "*Expirera le"
+
+msgid "claim"
+msgstr "Réclamer"
+
+msgid "Payment has been received"
+msgstr "Votre paiement a été reçu"
+
+msgid "This offer is not available at this moment."
+msgstr "Cette offre n'est pas disponible pour le moment."
+
+msgid "There is no inventory in your account."
+msgstr "Il n'y a pas de billets dans votre compte."
+
+msgid "Payment Plans are not available"
+msgstr "Les plans de paiement ne sont pas disponibles."
+
+msgid "Invalid Invoice ID or Plan ID"
+msgstr "Identifiant de facture ou de plan invalide"
+
+msgid "Payment request has been failed"
+msgstr "La demande de paiement a échoué"
+
+msgid "No CC Data available"
+msgstr "Aucune donnée de carte de crédit disponible"
+
+msgid "Failed to create user with email %name in AMGR"
+msgstr "Impossible de créer l'utilisateur avec le courriel %name dans AMGR"
+
+msgid "Failed to SSO user in AMGR."
+msgstr "Échec SSO de l'utilisateur dans AMGR."
+
+msgid "Forgot Password"
+msgstr "Mot de passe oublié"
+
+msgid "Enter your email address registered to your account and a temporary password will be emailed to you."
+msgstr "Entrez l'adresse courriel du compte et nous vous enverrons un mot de passe temporaire."
+
+msgid "Email Address"
+msgstr "Adresse courriel"
+
+msgid "Submit"
+msgstr "Valider"
+
+msgid "Sent"
+msgstr "Envoyé"
+
+msgid "Check your email for more instructions."
+msgstr "Vérifiez votre courriel pour de plus amples informations."
+
+msgid "Error"
+msgstr "Erreur"
+
+msgid "Reset Password"
+msgstr "Réinitialiser le mot de passe"
+
+msgid "Current Password"
+msgstr "Mot de passe actuel"
+
+msgid "New Password"
+msgstr "Nouveau mot de passe"
+
+msgid "Confirm Password"
+msgstr "Confirmer votre mot de passe"
+
+msgid "Save"
+msgstr "Enregistrer"
+
+msgid "Need Help"
+msgstr "Besoin d'aide?"
+
+msgid "Still need help? Contact us [here]."
+msgstr "Plus de questions? Contactez-nous"
+
+msgid "Success"
+msgstr "Félicitations"
+
+msgid "You have changed your password."
+msgstr "Vous avez modifié votre mot de passe."
+
+msgid "Dont have an Account?"
+msgstr "Vous n'avez pas de compte?"
+
+msgid "Dont have an Account? [Click Here]"
+msgstr "Vous n'avez pas de compte? [Click Here]"
+
+msgid "Email"
+msgstr "Courriel"
+
+msgid "Password"
+msgstr "Mot de passe"
+
+msgid "Remember Me"
+msgstr "Se souvenir de moi."
+
+msgid "Forgot your Password?"
+msgstr "Mot de passe oublié?"
+
+msgid "Create Account"
+msgstr "Créer un compte"
+
+msgid "Already have an Account?"
+msgstr "Vous avez déjà un compte?"
+
+msgid "Already have an Account? [Click Here]"
+msgstr "Vous avez déjà un compte? [Cliquez ici]"
+
+msgid "First Name"
+msgstr "Prénom"
+
+msgid "Last Name"
+msgstr "Nom"
+
+msgid "Sign Up"
+msgstr "S'inscrire"
+
+msgid "Change Password"
+msgstr "Changer votre mot de passe"
+
+msgid "Current Password"
+msgstr "Mot de passe actuel"
+
+msgid "Please enter temporary password"
+msgstr "Veuillez inscrire un mot de passe temporaire"
+
+msgid "Please enter a password"
+msgstr "Inscrire un mot de passe"
+
+msgid "Please enter password with 6 or more characters"
+msgstr "Inscrire un mot de passe avec un minimum de 6 caractères"
+
+msgid "Password should contain at least one number"
+msgstr "Votre mot de passe doit comprendre au moins un chiffre"
+
+msgid "Passwords do not match"
+msgstr "Les mots de passe ne correspondent pas"
+
+msgid "By creating an account, you agree to our [Privacy Policy]"
+msgstr "En créant un compte, vous acceptez notre [politique de confidentialité]"
+
+msgid "Terms & Conditions"
+msgstr "Termes et conditions"
+
+msgid "Sign In"
+msgstr "Se Connecter"
+
+msgid "You have been automatically logged out. Someone else has logged in with your username and password and the maximum number of 1 simultaneous session(s) was exceeded. This may indicate that your account has been compromised or that account sharing is not allowed on this site. Please contact the site administrator if you suspect your account has been compromised"
+msgstr "Vous avez été automatiquement déconnecté. Il semblerait que quelqu'un se soit connecté au même moment à votre compte en utilisant le même mot de passe. Le nombre de sessions ouvertes est limité à 1 par compte. Il se pourrait que votre compte ait été corrompu ou que vous soyez plus d'un sur cette même session. Si vous pensez que votre compte a été corrompu, veuillez contacter l'administrateur."
+
+msgid "You have been logged out from your account as you are logged in simultaneously in another session. Please ensure you do not login simultaneously with the same account in one browser session."
+msgstr "Vous avez été déconnecté puisque vous avez ouvert deux sessions au même moment sur le même compte. Assurez-vous que vous n'avez pas ouvert deux sessions simultanément sur le même fureteur."
+
+msgid "Login to Access"
+msgstr "Accéder à mon compte"
+
+msgid "No User Info available!"
+msgstr "Aucune information disponible sur l'utilisateur!"
+
+msgid "Your payment failure message has been updated"
+msgstr "Votre message d'échec de paiement a été mis à jour"
+
+msgid "Your payment failure message has been submitted"
+msgstr "Votre message d'échec de paiement a été soumis"
+
+msgid "Are you sure you want to delete submission %id?"
+msgstr "Êtes-vous certain de vouloir supprimer votre demande %id?"
+
+msgid "Failure Message submission %id has been deleted."
+msgstr "Le message d'erreur de votre demande a été supprimé."
+
+msgid "There was a problem sending your email notification to @email."
+msgstr "Il y a eu un problème pour envoyer votre notification par courrier électronique à @email"
+
+msgid "An email has been sent to @email"
+msgstr "Un courriel a été envoyé à @courriel"
+
+msgid "We're Sorry.."
+msgstr "Nos sommes désolés..."
+
+msgid "The link has expired"
+msgstr "Le lien a expiré"
+
+msgid "The link is no longer active"
+msgstr "Le lien n'est plus actif"
+
+msgid "Sign in or Create Account to claim."
+msgstr "Ouvrez une session ou créez un compte pour réclamer."
+
+msgid "You have tried to use a one-time login link that has expired. Please request a new one using the form below."
+msgstr "Le lien que vous voulez utiliser est expiré. Veuillez remplir le formulaire ci-dessous pour en recevoir un nouveau."
+
+msgid "You have tried to use a one-time login link that has either been used or is no longer valid. Please request a new one using the form below."
+msgstr "Le lien que vous voulez utiliser a déjà été utilisé ou n’est plus valide. Veuillez remplir le formulaire ci-dessous pour en recevoir un nouveau."
+
+msgid "<p>This is a one-time login for %user_name and will expire on %expiration_date.</p><p>Please reset your password and login with the new credentials.</p>"
+msgstr "<p>Voici un lien Ã  usage unique pour %user_name expirant le %expiration_date.</p>"
+
+msgid "Here is a summary of your purchase."
+msgstr "Voici un résumé de votre commande."
+
+msgid "For a printable version of your invoice and terms, please visit your online account."
+msgstr "Pour imprimer la facture et les conditions, veuillez consulter votre compte en ligne."
+
+msgid "Total Invoice Amount"
+msgstr "Montant total de la facture"
+
+msgid "Less Payments/Credits"
+msgstr "Moins paiements / crédits"
+
+msgid "Balance"
+msgstr "Solde"
+
+msgid "Don't have an Account? [Click Here]"
+msgstr "Vous n'avez pas de compte? [Click Here]"
+
+msgid "Send"
+msgstr "Envoyer"
+
+msgid "Send Tickets"
+msgstr "Envoyer les billets"
+
+msgid "Select Seats"
+msgstr "Sélectionner les sièges"
+
+msgid "Some of your tickets are not available to send"
+msgstr "Certains de vos billets ne peuvent être envoyés"
+
+msgid "Section"
+msgstr "Section "
+
+msgid "Seats"
+msgstr "Sièges"
+
+msgid "Row"
+msgstr "Rangée"
+
+msgid "Confirm"
+msgstr "Confirmer "
+
+msgid "Are you sure you want to send these tickets?"
+msgstr "Êtes-vous certain de vouloir transférer ces billets?"
+
+msgid "Your ticket(s) could not be transferred. Please try again."
+msgstr "Vos billets ne peuvent être transférés. Veuillez essayer à nouveau."
+
+msgid "We're Sorry..."
+msgstr "Nous sommes désolés..."
+
+msgid "Go to tickets."
+msgstr "Consultez vos billets"
+
+msgid "Manage Tickets"
+msgstr "Gérer les billets"
+
+msgid "Tickets"
+msgstr "Billets"
+
+msgid "View"
+msgstr "Afficher"
+
+msgid "UPDATE"
+msgstr "ACTUALISER"
+
+msgid "EDIT"
+msgstr "MODIFIER"
+
+msgid "Sell"
+msgstr "Vendre"
+
+msgid "Donate"
+msgstr "Faire un don"
+
+msgid "Print"
+msgstr "Imprimer"
+
+msgid "Pending"
+msgstr "En attente"
+
+msgid "Claimed"
+msgstr "Réclamé"
+
+msgid "Sold"
+msgstr "Vendu"
+
+msgid "CANCEL"
+msgstr "ANNULER"
+
+msgid "DONE"
+msgstr "TERMINER"
+
+msgid "RETRY"
+msgstr "RÉESSAYER"
+
+msgid "Donated"
+msgstr "Offert en don"
+
+msgid "Claimed By"
+msgstr "Réclamé par"
+
+msgid "Listed"
+msgstr "Affiché"
+
+msgid "Sent! Link will expire on"
+msgstr "Envoyé! Le lien expirera le"
+
+msgid "Manage Ticket Transfer"
+msgstr "Gérer le transfert de billets"
+
+msgid "Manage Ticket"
+msgstr "Gérer les billets"
+
+msgid "Entry Gate"
+msgstr "Porte d’entrée"
+
+msgid "TICKET DETAILS"
+msgstr "DÉTAIL DES BILLETS"
+
+msgid "order Summary"
+msgstr "Sommaire de la commande"
+
+msgid "Account Number"
+msgstr "Numéro de compte"
+
+msgid "Barcode Number"
+msgstr "Code à barres"
+
+msgid "Event Summary"
+msgstr "Sommaire de l’événement"
+
+msgid "Venue"
+msgstr "Salle"
+
+msgid "Phone"
+msgstr "Téléphone"
+
+msgid "Seat Locator"
+msgstr "Localisateur de sièges"
+
+msgid "MANAGE"
+msgstr "GÉRER"
+
+msgid "Street Address"
+msgstr "Adresse"
+
+msgid "Street Address #2"
+msgstr "Adresse #2"
+
+msgid "Country"
+msgstr "Pays"
+
+msgid "City"
+msgstr "Ville"
+
+msgid "State"
+msgstr "Province"
+
+msgid "Postal Code"
+msgstr "Code postal"
+
+msgid "Mobile Phone Number"
+msgstr "Téléphone cellulaire"
+
+msgid "Home Phone Number"
+msgstr "Téléphone maison"
+
+msgid "Your ticket(s) were not posted for sale. Please try again."
+msgstr "Vos billets ne sont pas inscrits à la vente. Essayez à nouveau."
+
+msgid "TRY AGAIN"
+msgstr "ESSAYEZ ENCORE"
+
+msgid "Deposit Account Type"
+msgstr "Type de compte de dépôt"
+
+msgid "Routing Number"
+msgstr "Numéro de routage"
+
+msgid "Confirm Account Number"
+msgstr "Confirmer le numéro de compte"
+
+msgid "Each"
+msgstr "Chaque"
+
+msgid "Edit/Cancel Posting"
+msgstr "Modifier / Annuler l'inscription"
+
+msgid "No tickets available in this section and row."
+msgstr "Aucun billet n'est disponible dans cette section et cette rangée."
+
+msgid "Some of your tickets are not available to."
+msgstr "Certain de vos billets ne sont pas disponibles."
+
+msgid "One of your tickets is not available to."
+msgstr "L'un de vos billets ne peut être"
+
+msgid "Some of your tickets are not available due to an outstanding invoice."
+msgstr "Certains de vos billets ne sont pas disponibles en raison d'une facture impayée. "
+
+msgid "One of your tickets is not available due to an outstanding invoice."
+msgstr "L'un de vos billets n'est pas disponible en raison d'une facture impayée."
+
+msgid "Bundle parking pass with transfer"
+msgstr "Ajouter un billet de stationnement à votre transfert"
+
+msgid "Error, please go back and try again."
+msgstr "Erreur, revenez en arrière pour essayer à nouveau."
+
+msgid "We have emailed an activation code to {email}. Please enter the code in the field below."
+msgstr "Un code d’activation vous a été envoyé par courriel au {email}. Veuillez entrer le code dans le champ ci-dessous."
+
+msgid "Donate see our email? Be sure to check your <br> spam folder, or "
+msgstr "Vous n’avez pas reçu le courriel? N’oubliez pas de consulter votre boîte de <br> courrier indésirable, ou"
+
+msgid "Resend the email."
+msgstr "Renvoyer le courriel."
+
+msgid "Set Price"
+msgstr "Fixer un prix"
+
+msgid "Set your earning price"
+msgstr "Déterminez le prix demandé"
+
+msgid "Similar tickets are selling for"
+msgstr "Des billets similaires se vendent pour"
+
+msgid "each"
+msgstr "chaque"
+
+msgid "Would you like to split your tickets?"
+msgstr "Souhaitez-vous séparer vos billets?"
+
+msgid "Yes, split and sell my tickets separately"
+msgstr "Oui, je souhaite vendre mes billets séparément."
+
+msgid "deposit account."
+msgstr "compte de dépôt."
+
+msgid "Select how would you like to get paid."
+msgstr "Sélectionnez la méthode de paiement."
+
+msgid "Check will be mailed to the address associated with your Seller Profile."
+msgstr "Le chèque sera envoyé à l'adresse du vendeur."
+
+msgid "Your funds will be available when purchasing."
+msgstr "Vos fonds seront disponibles à l'achat."
+
+msgid "Please complete your seller profile details to continue."
+msgstr "Veuillez compléter votre profil de vendeur pour continuer."
+
+msgid "Seller Profile"
+msgstr "Profil du vendeur"
+
+msgid "Please update your account details to continue."
+msgstr "Veuillez mettre à jour votre compte pour continuer."
+
+msgid "account ending in"
+msgstr "compte se terminant par"
+
+msgid "Editing or cancelling the posting will occur to the ticket listed below."
+msgstr "La révision ou l’annulation du message modifiera le billet ci-dessous."
+
+msgid "Editing or cancelling the posting will occur to all tickets listed below."
+msgstr "Modifier ou annuler l’inscription affectera tous les billets inscrits ci-dessous."
+
+msgid "CANCEL POSTING"
+msgstr "ANNULER L’INSCRIPTION"
+
+msgid "Change the price of your posting or cancel it."
+msgstr "Modifiez le prix de vente ou annulez celle-ci."
+
+msgid "Once confirmed, the ticket will return to your account."
+msgstr "Une fois confirmé, le billet sera retourné dans votre compte."
+
+msgid "Success!"
+msgstr "Félicitations!"
+
+msgid "Sorry!"
+msgstr "Désolé!"
+
+msgid "Your ticket(s) has been returned to your account."
+msgstr "Vos billets sont retournés dans votre compte."
+
+msgid "Something went wrong. Please try again."
+msgstr "Une erreur s'est produite. Veuillez essayer à nouveau."
+
+msgid "GO TO TICKETS"
+msgstr "CONSULTEZ MES BILLETS"
+
+msgid "Share the following link to send tickets. The link is only accessible to users you invite. Reclaim Ticket to deactivate the link."
+msgstr "Cliquer sur le bouton COPIER vous permettra de COLLER le lien dans un message texte ou courriel. Ce lien permettra au destinataire de réclamer ces billets. Vous pouvez annuler le transfert et invalider le lien en cliquant sur RÉVOQUER."
+
+msgid "Following ticket(s) has been grouped for selected action."
+msgstr "Les billets suivants ont été groupés pour l’action sélectionnée."
+
+msgid "Claim Link"
+msgstr "Lien d'accès"
+
+msgid "COPY LINK"
+msgstr "COPIER LE LIEN"
+
+msgid "RECLAIM"
+msgstr "RÉVOQUER"
+
+msgid "Your tickets are opening in a new window."
+msgstr "Vos billets seront affichés dans une nouvelle fenêtre."
+
+msgid "Don't see them?"
+msgstr "Vous ne les voyez pas?"
+
+msgid "Click here to try again."
+msgstr "Cilquez ici pour essayer à nouveau."
+
+msgid "There was an error downloading your tickets, please try again."
+msgstr "Une erreur s'est produite lors du téléchargement de vos billets. Veuillez essayer à nouveau."
+
+msgid "GO BACK"
+msgstr "RETOUR"
+
+msgid "The expiration date and time to transfer your tickets has expired."
+msgstr "La date et l'heure limite du transfert sont arrivées à échéance."
+
+msgid "Select your Charity"
+msgstr "Sélectionnez votre œuvre caritative"
+
+msgid "Select a parking pass"
+msgstr "Sélectionnez un billet de stationnement"
+
+msgid "Choose from the list below."
+msgstr "Choisir dans la liste ci-dessous."
+
+msgid "Parking pass"
+msgstr "Billet de stationnement"
+
+msgid "No parking pass available for transfer."
+msgstr "Aucun billet de stationnement n’est disponible pour le transfert."
+
+msgid "Proceed to Link"
+msgstr "Suivre le lien"
+
+msgid "This will expire on"
+msgstr "Expirera le"
+
+msgid "if unclaimed."
+msgstr "si non réclamé."
+
+msgid "You ticket(s) couldn't reclaim. Please try again."
+msgstr "Vos billets ne peuvent être révoqués. Veuillez essayer à nouveau."
+
+msgid "* You cannot reclaim donated tickets."
+msgstr "* Vous ne pouvez pas révoquer des billets offerts en don."
+
+msgid "SELL TICKETS"
+msgstr "VENDRE DES BILLETS"
+
+msgid "Ticket price must be at least"
+msgstr "Le prix du billet doit être au moins à"
+
+msgid "Ticket price must be at less then or equal to"
+msgstr "Le prix du billet doit être plus ou moins égal à"
+
+msgid "Deposit Account"
+msgstr "Compte de dépôt"
+
+msgid "Seller Credit"
+msgstr "Crédit du vendeur"
+
+msgid "Bank Account"
+msgstr "Compte bancaire"
+
+msgid "Checking account ending in"
+msgstr "Compte courant se terminant par"
+
+msgid "None Selected"
+msgstr "Aucune sélection"
+
+msgid "Checking"
+msgstr "Courant"
+
+msgid "Saving"
+msgstr "Épargnes"
+
+msgid "Account numbers are not matching."
+msgstr "Les numéros de compte ne correspondent pas."
+
+msgid "Must be a number"
+msgstr "Doit être un chiffre"
+
+msgid "Invalid Account Type"
+msgstr "Type de compte invalide"
+
+msgid "Something went Wrong!"
+msgstr "Une erreur s’est produite!"
+
+msgid "Plan"
+msgstr "Plan"
+
+msgid "Due Date"
+msgstr "Pour le"
+
+msgid "Paid"
+msgstr "Payé"
+
+msgid "MY ACCOUNT"
+msgstr "MON COMPTE"
+
+msgid "ticket! Sign in or Create Account to claim."
+msgstr "billet! Ouvrez une session ou créez un compte pour réclamer les billets."
+
+msgid "tickets! Sign in or Create Account to claim."
+msgstr "billets! Ouvrez une session ou créez un compte pour réclamer les billets."
+
+msgid "has sent you"
+msgstr "vous a envoyé"
+
+msgid "Congratulations!"
+msgstr "Félicitations!"
+
+msgid "All fields are required."
+msgstr "Tous les champs sont requis."
+
+msgid "User credentials are invalid."
+msgstr "Les identifiants sont invalides."
+
+msgid "Disagree"
+msgstr "Je refuse"
+
+msgid "Agree"
+msgstr "J’accepte"
+
+msgid "Invalid Routing number"
+msgstr "Numéro de routage invalide."
+
+msgid "Wrong validation code"
+msgstr "Code de validation erroné"
+
+msgid "Event not found"
+msgstr "Événement introuvable"
+
+msgid "No inventory"
+msgstr "Pas d’inventaire"
+
+msgid "Too many tickets"
+msgstr "Trop de billets"
+
+msgid "Sorry but we've encountered an error. Bear with us and please try again, or refresh your browser."
+msgstr "Désolé, une erreur est survenue. Veuillez essayer de nouveau ou actualiser votre navigateur. Merci de votre patience."
+
+msgid "@sender @header_response @ticket_count ticket! Sign in or Create Account to claim."
+msgstr "@sender @header_response @ticket_count billet! Ouvrez une session ou créez un compte pour accepter les billets."
+
+msgid "@sender @header_response @ticket_count tickets! Sign in or Create Account to claim."
+msgstr "@sender @header_response @ticket_count billets! Ouvrez une session ou créez un compte pour accepter les billets."
+
+msgid "@sender has sent you @ticket_count ticket! Sign in or Create Account to claim."
+msgstr "@sender vous a envoyé @ticket_count billet! Ouvrez une session ou créez un compte pour accepter les billets."
+
+msgid "@sender has sent you @ticket_count tickets! Sign in or Create Account to claim."
+msgstr "@sender vous a envoyé @ticket_count billets! Ouvrez une session ou créez un compte pour accepter les billets."
+
+msgid "Sign Up failed. Either email exists or required parameters are missing."
+msgstr "L'inscription a échoué. Soit l'e-mail existe, soit les paramètres requis sont manquants."
+
+msgid "User credentials are invalid"
+msgstr "Les identifiants sont invalides"
+
+msgid "Email already associated with an account"
+msgstr "Email déjà associé à un compte"
+
+msgid "ACCOUNT INFORMATION"
+msgstr "INFORMATION SUR LE COMPTE"
+
+msgid "INVOICE SUMMARY"
+msgstr "RÉSUMÉ DES FACTURES"
+
+msgid "Payment Plan"
+msgstr "Plan"
+
+msgid "Payment Plan:"
+msgstr "Plan de paiement:"
+
+msgid "Due Date:"
+msgstr "Due à:"
+
+msgid "Subtotal:"
+msgstr "Sous-total:"
+
+msgid "Total Amount:"
+msgstr "Total:"
+
+msgid "Pay in Full"
+msgstr "Payer en entier"
+
+msgid "Invoice ID"
+msgstr "Facture"
+
+msgid "Check your email for a copy of your Invoice."
+msgstr "Consultez votre courrier électronique pour obtenir une copie de votre facture."
+
+msgid "An Error Occurred!"
+msgstr "Une erreur s'est produite!"
+
+msgid "Please try again by clicking on \"Email\" button to receive a copy of your Invoice."
+msgstr "Réessayez en cliquant sur le bouton \"Email\" pour recevoir une copie de votre facture."
+
+msgid "Your Invoice has been sent!"
+msgstr "Votre facture a été envoyée!"
+
+msgid "No Data Found"
+msgstr "Aucune donnée disponible"
+
+msgid "No Invoice found"
+msgstr "Aucune facture trouvée"
+
+msgid "API Exception"
+msgstr "Exception API"
+
+msgid "Zipcode"
+msgstr "Code postal"
+
+msgid "An Error occured. Please try later."
+msgstr "Une erreur s'est produite. Merci d'essayer plus tard."
+
+msgid "Required field not supplied"
+msgstr "Champ requis non fourni"
+
+msgid "Invalid User Account"
+msgstr "Compte d'utilisateur invalide."
+
+msgid "No Invoice Details found"
+msgstr "Aucun facture n'a été trouvée"
+
+msgid "Invalid Invoice ID or User Account"
+msgstr "Facture ou compte utilisateur invalide"
+
+msgid "No Event Details found"
+msgstr "Aucun détail d'événement trouvé"
+
+msgid "No CC Found"
+msgstr "Aucune carte de crédit n'a été trouvée"
+
+msgid "Invalid Account ID"
+msgstr "Compte invalide"
+
+msgid "No Payment Plan Details"
+msgstr "Aucun détail sur le plan de paiement"
+
+msgid "No Payment Plan Details Found"
+msgstr "Aucun détail sur le plan de paiement n'a été trouvé"
+
+msgid "API Error"
+msgstr "Erreur API"
+
+msgid "No Schedule found"
+msgstr "Aucune horaire n'a été trouvée"
+
+msgid "Invalid/Missing CIN Number"
+msgstr "Numéro CIN invalide / manquant"
+
+msgid "Something went Wrong"
+msgstr "Quelque chose n’a pas fonctionné"
+
+msgid "No Credit Card Found"
+msgstr "Aucune carte de crédit n'a été trouvée"
+
+msgid "No user profile data found"
+msgstr "Aucune donnée de profil utilisateur trouvée"
+
+msgid "The transaction was declined. Please use a different card or contact your bank."
+msgstr "La transaction a été refusée. Veuillez utiliser une carte différente ou contacter votre banque."
+
+msgid "Thank you for your payment!"
+msgstr "Merci pour votre paiement!"
+
+msgid "You will receive an email with confirmation of your payment."
+msgstr "Vous recevrez un email avec confirmation de votre paiement."
+
+msgid "AMOUNT DUE"
+msgstr "MONTANT DÛ"
+
+msgid "AMOUNT DUE TODAY"
+msgstr "MONTANT DÛ AUJOURD'HUI"
+
+msgid "I Accept"
+msgstr "J'accepte"
+
+msgid "Your card is not valid. Please update your card."
+msgstr "La carte n’est pas valide. Veuillez la mettre à jour."
+
+msgid "The billing info doesn't match what is on file with your bank."
+msgstr "Les informations de facturation ne correspondent à celles de votre banque."
+
+msgid "Your Account"
+msgstr "Votre compte"
+
+msgid "Log out"
+msgstr "Fermer la session"
+
+msgid "Password updated successfully."
+msgstr "Le mot de passe a été mis à jour."
+
+msgid "Switch Accounts"
+msgstr "Changer de compte"
+
+msgid "DUE DATE"
+msgstr "Due à"
+
+msgid "BALANCE DUE"
+msgstr "Montant dû"
+
+msgid "INVOICE"
+msgstr "Facture"
+
+msgid "INVOICE DETAILS"
+msgstr "DÉTAILS DE LA FACTURE"
+
+msgid "PAYMENT OPTION"
+msgstr "OPTIONS DE PAIEMENT"
+
+msgid "LESS PAYMENTS"
+msgstr "MOINS LES PAIEMENTS"
+
+msgid "Account ID"
+msgstr "Compte"
+
+msgid "TOTAL TICKET AMOUNT"
+msgstr "MONTANT TOTAL DU BILLET"
+
+msgid "PARKING AMOUNT"
+msgstr "MONTANT POUR LE STATIONNEMENT"
+
+msgid "HANDLING fee"
+msgstr "FRAIS DE GESTION"
+
+msgid "QUICK LINKS"
+msgstr "Liens rapides"
+
+msgid "INVOICES"
+msgstr "FACTURES"
+
+msgid "TICKETS"
+msgstr "BILLETS"
+
+msgid "You have been logged out due to inactivity."
+msgstr "Vous avez été déconnecté pour cause d'inactivité."
+
+msgid "Password reset failed"
+msgstr "Réinitialisation du mot de passe"
+
+msgid "Password mismatch"
+msgstr "Non concordance des mots de passe"
+
+msgid "DESCRIPTION"
+msgstr "LA DESCRIPTION"
+
+msgid "TOTAL COST"
+msgstr "COÛT TOTAL"
+
+msgid "My New Invoice"
+msgstr "Ma nouvelle facture"
+
+msgid "TQTY"
+msgstr "QUANTITÉ"
+
+msgid "Summary"
+msgstr "Résumé"
+
+msgid "Payment Options"
+msgstr "Options de paiement"
+
+msgid "Review"
+msgstr "Révision"
+
+msgid "Addons"
+msgstr "Produits optionnels"
+
+msgid "SUBTOTAL"
+msgstr "SOUS-TOTAL"
+
+msgid "PAY TODAY"
+msgstr "PAYER"
+
+msgid "To update your payment method or to make a payment, please contact the ticket office at xxxx-xxx-xxxx."
+msgstr "Pour mettre à jour votre méthode de paiement ou pour faire un paiement, veuillez contacter la billetterie au xxxx-xxx-xxxx."
+
+msgid "Below are details on your payment plan, which details what credit card was used to sign up, a payment schedule, and payment amounts. If you wish to make additional payments prior to your next payment date, enter an amount below and continue. To edit your credit card, please contact us to update."
+msgstr "Vous trouverez ci-dessous des détails sur votre plan de paiement, qui détaille quelle carte de crédit a été utilisée pour s'inscrire, un calendrier de paiement et les montants des versements. Si vous souhaitez effectuer des paiements supplémentaires avant la prochaine date de paiement, entrez un montant ci-dessous et continuez. Pour modifier votre carte de crédit, veuillez nous contacter pour la mettre à jour."
+
+msgid "Zip Code"
+msgstr "Code postal"
+
+msgid "Terms and Conditions"
+msgstr "Termes et conditions"
+
+msgid "ACCOUNT DETAILS"
+msgstr "DÉTAILS DU COMPTE"
+
+msgid "Don't worry, let's try this again by reloading the page and attempting your payment again."
+msgstr "Essayons à nouveau en rechargeant la page et en essayant à nouveau votre paiement."
+
+msgid "Oops. We're sorry, but this is not what we were hoping to see."
+msgstr "Nous sommes désolés, ce n'était pas le résultat escompté."
+
+msgid "Next Payment"
+msgstr "Prochain versement"

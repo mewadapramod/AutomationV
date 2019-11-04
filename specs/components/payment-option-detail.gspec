@@ -1,0 +1,35 @@
+@script ../my-methods.js
+@script ../my-rules.js
+@import ../galen-extras/galen-extras-rules.gspec
+
+@objects
+	radioIcon 	div[data-react-toolbox='radio']
+	radioIconText 	span[class*='theme-text']
+
+= Payment Option Detail Section =
+	radioIcon:
+		height ~20 px
+		width ~20 px
+		inside parent ~0 px left top
+
+	radioIconText:
+		text is "${textName}"
+
+		@if ${textName == ""}
+			height ~32 px
+		@else
+			height ~19px
+
+		aligned horizontally top radioIcon ~6 px
+
+		@on desktop, laptop, tablet
+			| right-of radioIcon ~22 px
+
+		@on mobile, mini-tablet
+			| right-of radioIcon ~25 px
+
+		css font-family contains "verta"
+		#css font-size is "16px"
+		#css font-weight matches "^(normal|400)$"
+		#css font-style is "normal"
+		#css font-stretch is "normal"

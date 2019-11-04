@@ -1,0 +1,70 @@
+@script ../my-methods.js
+@script ../my-rules.js
+@import ../galen-extras/galen-extras-rules.gspec
+
+@objects
+	promoTilesIcon 	div[class='promo-icon'] > img
+    promoTilesIconSpace    div[class='promo-icon']
+    promoTilesTitle   div[class='promo-title'] > span
+    promoTilesTitleSpace   div[class='promo-title']
+    promoTilesArrow   div[class='promo-title'] > small
+
+= Promotile Detail =
+	promoTilesIcon:
+		| if promoTilesIcon is visible
+			centered horizontally inside promoTilesIconSpace
+            centered vertically inside promoTilesIconSpace ~10px
+
+    promoTilesIconSpace:
+        @on laptop, desktop, mini-tablet, tablet
+            aligned vertically all promoTilesTitleSpace
+            above promoTilesTitleSpace ~0 px
+            inside parent ~0 px top, ~15 px left right
+
+        @on mobile
+            aligned horizontally all promoTilesTitleSpace
+            left-of promoTilesTitleSpace ~0 px
+            inside parent ~0 px top bottom, ~15 px left
+    
+    | if promoTilesTitle is visible    
+	    promoTilesTitle:
+	        centered vertically inside promoTilesTitleSpace ~5px
+	        inside promoTilesTitleSpace ~20px left
+	        
+	        @on mobile
+	            #css font-size is "18px"
+	            #css text-align is "start"
+
+	        @on laptop, mini-tablet, desktop, tablet
+	            #css font-size is "16px"
+
+	        css font-family contains "verta"
+	        #css font-weight is "500"
+	        #css font-style is "normal"
+	        #css font-stretch is "normal"
+
+    promoTilesArrow:
+        @on laptop, desktop
+            width ~56 px
+            height ~56 px
+
+        @on tablet, mobile, mini-tablet
+            width ~40 px
+            height ~40 px
+
+        @on laptop, desktop, mini-tablet, tablet
+            inside partly promoTilesIconSpace ~${find("promoTilesIconSpace").height() - (find("promoTilesArrow").height())/2} px top
+            inside partly promoTilesTitleSpace ~${find("promoTilesTitleSpace").height() - (find("promoTilesArrow").height())/2} px bottom
+
+        @on mobile
+            centered vertically inside promoTilesTitleSpace
+
+        @on *
+            inside parent ~${parseFloat("20") + parseFloat(padding_right)} px right
+
+        css font-family contains "verta"
+        #css font-size is "20px"
+        #css font-weight is "300"
+        #css font-style is "normal"
+        #css font-stretch is "normal"
+        #css text-align is "center"

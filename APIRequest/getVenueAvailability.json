@@ -1,0 +1,21 @@
+{
+	"header": {
+		"ver": "1",
+		"src_sys_type": "2",
+		"src_sys_name": "IOMEDIA",
+		"archtics_version": "$ARCHTICS_VERSION",
+		"session_id": "$SESSION_ID"
+	},
+	"command1": {
+		"cmd": "get_avail_seats",
+		"ref": "iom_get_venue_availability",
+		"uid": "$UID",
+		"dsn": "$DSN",
+		"session_id": "636510950757758000",
+		"acct_id": "$ACCOUNT_ID",
+		"event_name": "$EVENT_ID",
+		"summary_flag": "Y",
+		"call_reason": "BY",
+		"manifest_retrieval_date": "0001-01-01 00:00:00"
+	}
+}

@@ -1,0 +1,111 @@
+@import galen-extras/galen-extras-rules.gspec
+@script my-methods.js
+@script my-rules.js
+
+@objects
+	textInput-* 	div[class*='invoice-invoiceBilling'] div[class*='invoice-singleCardAddress'] input
+	textLabel-* 	div[class*='invoice-invoiceBilling'] div[class*='invoice-singleCardAddress'] label
+	continueBtn    div.accordionBilling button[class*='invoice-buttonBlock']
+	billingContainer 	.accordionBilling
+        accordionContent    div[class*='invoice-accordionContent']
+
+= TextLabels =
+	@on *
+		@forEach [textLabel-*] as label
+   		 	${label}:
+   		 		css font-family contains "verta"
+   		 		#css font-size is "12px"
+   		 		#css font-weight matches "^(normal|400)$"
+   		 		#css font-style is "normal"
+   		 		#css font-stretch is "normal"
+   		 		#css text-align is "start"
+
+= InputBoxes =
+    @on desktop, laptop
+        | textInput-* are rendered in 2 column table layout, with ~44px vertical and ~30px horizontal margin
+        | textInput-* sides are inside billingContainer with ~20px margin from left and right
+        | first textInput-*:
+            inside billingContainer.accordionContent ~40px top
+        | last textInput-*:
+            above continueBtn ~50px
+
+    @on laptop
+        | every textInput-* has width ~339px
+
+    @on desktop
+        | every textInput-* has width ~429px
+
+    @on mobile
+        | textInput-* sides are inside billingContainer with ~15px margin from left and right
+        | first textInput-*:
+            inside billingContainer.accordionContent ~40px top
+        | last textInput-*:
+            above continueBtn ~50px
+
+        @forEach [textInput-*] as inputField, next as nextInputField
+            ${inputField}:
+                @if ${isVisible(inputField)}
+                    | height ~21 px
+                    @if ${isVisible(nextInputField)}
+                        @if ${find(inputField).width() < 200}
+                            @if ${find(inputField).width() === find(nextInputField).width()}
+                                @if ${find(inputField).top() === find(nextInputField).top()}
+                                    aligned horizontally all ${nextInputField}
+                                    @on desktop, laptop, mini-tablet, tablet
+                                        left-of ${nextInputField} ~30px
+                                    @on mobile
+                                        left-of ${nextInputField} ~10px    
+                                @else
+                                    near ${nextInputField} ~44px top, ~10px right
+                                width 100% of ${nextInputField}/width
+                            @else
+                                aligned vertically right ${nextInputField} ~1 px
+                                @on tablet
+                                    above ${nextInputField} ~34 px
+                                @on desktop, laptop, mini-tablet, mobile
+                                    above ${nextInputField} ~44 px
+                        @else
+                            @on tablet
+                                above ${nextInputField} ~34 px
+                            @on desktop, laptop, mini-tablet, mobile
+                                above ${nextInputField} ~44 px
+                            @if ${find(inputField).width() === find(nextInputField).width()}
+                                width 100% of ${nextInputField}/width
+                                aligned vertically all ${nextInputField}
+                            @else
+                                aligned vertically left ${nextInputField}
+                                width ~200% of ${nextInputField}/width
+                            
+                    css font-family contains "verta"
+    
+		@forEach [textInput-*] as inputBox
+   		 	${inputBox}:
+   		 		css font-family contains "verta"
+   		 		#css font-size is "16px"
+   		 		#css font-weight matches "^(normal|300)$"
+   		 		#css font-style is "normal"
+   		 		#css font-stretch is "normal"
+   		 		#css text-align is "start"
+
+= TextLabelAll =
+	@on desktop, laptop
+    	textLabel-1:
+            aligned horizontally all textLabel-2
+            inside billingContainer ~20px left
+
+= TextInputAll =
+	@on desktop, laptop
+    	textInput-1:
+        	aligned horizontally all textInput-2
+        	inside billingContainer ~20px left   	
+
+= ContinueBtn =
+	@on desktop, laptop
+		continueBtn:
+			height ~36px
+			inside billingContainer ~20px left right
+
+	@on mobile, tablet, mini-tablet
+		continueBtn:
+			height ~36px
+			inside billingContainer ~15px left right

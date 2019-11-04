@@ -1,0 +1,18 @@
+{
+	"header": {
+		"ver": 1,
+		"src_sys_type": 2,
+		"src_sys_name": "IOMediaScript",
+		"archtics_version": "$ARCHTICS_VERSION",
+		"session_id": "$SESSION_ID"
+	},
+	"command1": {
+		"cmd": "check_out",
+		"ref": "IOM_CHECK_OUT",
+		"uid": "$UID",
+		"dsn": "$DSN",
+		"site_name": "$SITE_NAME",
+		"acct_id": "$ACCT_ID",
+		"order_num": "$ORDER_NUM"
+	}
+}

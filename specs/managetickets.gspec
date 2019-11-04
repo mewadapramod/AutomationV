@@ -1,0 +1,119 @@
+@import galen-extras/galen-extras-rules.gspec
+@import loggedin-header.gspec
+
+@objects
+    promoTiles-*  div[class='form-group'] div[class*='promotile']
+    manageTickets   .react-root-event ul[class*='events-eventList']
+        listing-*         li[class*='events-event'] a
+    subHeader   div[class*='events-subHeader']
+        ticketsHeader   div[class*='events-ticketHeader'] h3
+        #buyLink     button
+     
+@set
+    laptopMargin    ~2.5% of screen/width
+    desktopMargin   ~6% of screen/width
+    tabletMargin    ~2.6% of screen/width
+    minitabletMargin    ~4.4% of screen/width
+    mobileMargin    ~4% of screen/width
+
+= Promo Tiles =
+    @on *
+        global:
+            count visible promoTiles-* is 0
+
+= Header =
+    @on *
+        subHeader:
+            below header ~0 px
+            inside partly viewport ~0 px left right
+
+            @on desktop, laptop, tablet, mini-tablet
+                height ~100 px
+            @on mobile
+                height ~90 px
+
+        subHeader.ticketsHeader:
+            | height ~33 px
+            css font-family contains "verta"
+
+            @on laptop
+                inside subHeader ~80 px left
+            @on desktop
+                inside subHeader 100 to 115 px left
+            @on tablet
+                inside subHeader ~46 px left
+            @on mobile, mini-tablet
+                inside subHeader ~15 px left
+
+            centered vertically inside subHeader ~10 px
+
+        #subHeader.buyLink:
+            #@on laptop, desktop, tablet
+                #height ~34 px
+                #text is "BUY MORE TICKETS"
+                #width ~160 px
+                #css font-family contains "verta"
+                #aligned horizontally left subHeader.ticketsHeader ~2 px
+
+                #@on laptop
+                #    inside subHeader ~80 px right
+                #@on desktop
+                #    inside subHeader 100 to 115 px right
+                #@on tablet
+                #    inside subHeader ~46 px right
+
+                #centered vertically inside subHeader ~10 px
+
+= First Tickets =
+    | first manageTickets.listing-* :
+        @on *
+            css font-family contains "verta"
+            #css font-weight is "500"
+            #css font-style is "normal"
+            #css font-stretch is "normal"
+            below subHeader ~60 px
+
+= Check if manage tickets list is present =
+    @if ${isVisible("manageTickets")}
+        = Tickets List =
+            | amount of visible manageTickets.listing-* should be > 0
+
+            = Listing =
+                @on desktop
+                        | manageTickets.listing-* are rendered in 3 column table layout, with ~30px vertical and ~30px horizontal margin
+                        | every manageTickets.listing-* has height ~230 px
+                        | every manageTickets.listing-* has width ~450 px
+                        | every manageTickets.listing-* should be almost squared
+                        | first manageTickets.listing-* :
+                            inside screen ${desktopMargin} left
+
+                @on laptop
+                        | manageTickets.listing-* are rendered in 3 column table layout, with ~30px vertical and ~30px horizontal margin
+                        | every manageTickets.listing-* has height ~184 px
+                        | every manageTickets.listing-* has width ~360 px 
+                        | every manageTickets.listing-* should be almost squared  
+                        | first manageTickets.listing-* :
+                            inside screen ${laptopMargin} left     
+
+                @on tablet
+                        | manageTickets.listing-* are rendered in 3 column table layout, with ~30px vertical and ~30px horizontal margin
+                        | every manageTickets.listing-* has height ~150 px
+                        | every manageTickets.listing-* has width ~293 px  
+                        | every manageTickets.listing-* should be almost squared   
+                        | first manageTickets.listing-* :
+                            inside screen ${tabletMargin} left 
+
+                @on mobile
+                        | manageTickets.listing-* are are aligned vertically above each other with ~10px margin
+                        | every manageTickets.listing-* has height ~180 px 
+                        | every manageTickets.listing-* should be almost squared  
+                        | first manageTickets.listing-* :
+                            inside screen ${mobileMargin} right left
+                        
+                @on mini-tablet
+                        | manageTickets.listing-* are rendered in 2 column table layout, with ~30px vertical and ~10px horizontal margin
+                        | every manageTickets.listing-* has height ~176 px
+                        | every manageTickets.listing-* has width ~375 px
+                        | every manageTickets.listing-* should be almost squared   
+                        | first manageTickets.listing-* :
+                            inside screen ${minitabletMargin} left

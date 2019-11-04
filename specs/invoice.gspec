@@ -1,0 +1,142 @@
+@import galen-extras/galen-extras-rules.gspec
+@import loggedin-header.gspec
+
+@objects
+    promoTiles-*  div[class='form-group'] div[class*='promotile']
+    header  .container > .navbar-header
+    dashboardHeader     .sub-header
+    sectionTabs   .sectionTabs
+    listingBox  ul.react-listing
+        listing-*  li.list-item
+    invoiceDetail   div.accordionSummary
+    invoiceSectionTitle     div[class*='invoice-invoiceListing'] div[class*='invoice-invoiceSectionsTitle']
+    body    body
+
+@set
+    laptopMargin    ~2.5% of screen/width
+    desktopMargin   ~6% of screen/width
+    tabletMargin    ~2.6% of screen/width
+    minitabletMargin    ~4.4% of screen/width
+    mobileMargin    ~4% of screen/width
+   
+= Promo Tiles =
+    @on *
+        global:
+            count visible promoTiles-* is 0
+
+= Section Tabs =
+    @on *
+        sectionTabs:
+            absent
+
+= Dashboard Header =
+    dashboardHeader:
+        @on laptop, desktop, tablet   
+            visible
+
+        @on mobile, mini-tablet
+            absent
+
+= Margin between listing and detail =
+    @on mobile, mini-tablet
+        invoiceDetail:
+            absent
+
+    @on laptop, desktop, tablet
+        invoiceDetail:
+            right-of listingBox ~30 px
+            aligned horizontally top listingBox
+
+= Check if invoice list is present =
+    @if ${isVisible("listingBox")}
+        = Invoice List Section Title =
+            @on *
+                | if invoiceSectionTitle is visible
+                    invoiceSectionTitle:
+                        #text is "Invoices"
+                        css font-family contains "verta"
+                        #css font-weight is "500"
+                        #css font-style is "normal"
+                        #css font-stretch is "normal"
+
+                        @on laptop, desktop, tablet
+                            | height ~24 px
+                            css padding-left is "20px"
+                            #css font-size is "20px"
+                            above listingBox.listing-1 ~${parseFloat("16") - parseFloat(getCssProperty("invoiceSectionTitle", "padding-bottom"))} px
+                            aligned vertically all listingBox.listing-1 17px
+                            @if ${isVisible("dashboardHeader")}
+                                below dashboardHeader ~0 px
+                            @else
+                                below header ~20 px
+
+                        @on mobile, mini-tablet
+                            | height ~16 px
+                            aligned vertically centered listingBox.listing-1
+                            #css font-size is "14px"
+                            #css text-align is "center"
+                            above listingBox.listing-1 ~${parseFloat("14") - parseFloat(getCssProperty("invoiceSectionTitle", "padding-bottom"))} px
+                            @if ${isVisible("dashboardHeader")}
+                                below dashboardHeader ~15 px
+                            @else
+                                below header ~15 px
+                            centered horizontally inside screen
+
+        = Invoice List =
+            = Listing =
+                @on desktop
+                    | listingBox.listing-* are aligned vertically above each other with ~30px margin
+                    | every listingBox.listing-* has height ~110 px
+                    | every listingBox.listing-* has width ~${parseFloat("450") - getScrollbarWidth("listingBox", "listingBox.listing-1")} px
+                    | first listingBox.listing-* :
+                        inside screen ${desktopMargin} left
+                        @if ${isVisible("dashboardHeader")}
+                            below dashboardHeader ~54 px
+                        @else
+                            below header ~60 px
+
+                @on laptop
+                    | listingBox.listing-* are aligned vertically above each other with ~15px margin
+                    | every listingBox.listing-* has height ~88 px
+                    | every listingBox.listing-* has width ~${parseFloat("360") - getScrollbarWidth("listingBox", "listingBox.listing-1")} px
+                    | first listingBox.listing-* :
+                        inside screen ${laptopMargin} left
+                        @if ${isVisible("dashboardHeader")}
+                            below dashboardHeader ~54 px
+                        @else
+                            below header ~60 px
+
+                @on tablet
+                    | listingBox.listing-* are aligned vertically above each other with ~14px margin
+                    | every listingBox.listing-* has height ~72 px
+                    | every listingBox.listing-* has width ~${parseFloat("294") - getScrollbarWidth("listingBox", "listingBox.listing-1")} px
+                    | first listingBox.listing-* :
+                        inside screen ${tabletMargin} left
+                        @if ${isVisible("dashboardHeader")}
+                            below dashboardHeader ~54 px
+                        @else
+                            below header ~60 px
+
+                @on mobile
+                    | listingBox.listing-* are aligned vertically above each other with ~10px margin
+                    | every listingBox.listing-* has height ~110 px
+                    #| every listingBox.listing-* has width ~${parseFloat("345") - getScrollbarWidth("body", "listingBox.listing-1")} px
+                    | first listingBox.listing-* :
+                        inside screen ${mobileMargin} right left
+                        @if ${isVisible("dashboardHeader")}
+                            below dashboardHeader ~11 px
+                        @else
+                            below header ~11 px
+
+                @on mini-tablet
+                    | listingBox.listing-* are rendered in 2 column table layout, with ~10px vertical and ~10px horizontal margin
+                    | every listingBox.listing-* has height ~110 px
+                    | every listingBox.listing-* has width ~${parseFloat("345") - getScrollbarWidth("body", "listingBox.listing-1")} px
+                    | first listingBox.listing-* :
+                        inside screen ${minitabletMargin} left
+                        @if ${isVisible("dashboardHeader")}
+                            below dashboardHeader ~11 px
+                        @else
+                            below header ~11 px
+
+                | test all listingBox.listing-* with components/invoice-listing-detail.gspec

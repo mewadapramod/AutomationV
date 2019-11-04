@@ -1,0 +1,35 @@
+@script ../my-methods.js
+@script ../my-rules.js
+@import ../galen-extras/galen-extras-rules.gspec
+
+@objects
+	td-*	td
+	label	td
+	amount	td span
+	label-amount 	xpath	(.//td)[2]
+
+= Invoice Listing Detail Section =
+	| td-* are aligned horizontally next to each other with equal distance
+
+	label, label-amount:
+		| height ~16 px
+		css font-family contains "verta"
+		#css font-size is "14px"
+		#css font-weight is "300"
+		#css font-style is "normal"
+		#css font-stretch is "normal"
+		inside parent ~${parseFloat("8") - parseFloat(getCssProperty("label", "padding-top"))} px top
+	
+	label-amount:
+		#css text-align is "right"
+		text contains "${currencyIdentifier}"
+
+	label:
+		text ends ":"
+		inside parent ~${parseFloat("8") - parseFloat(getCssProperty("label", "padding-left"))} px left
+		aligned horizontally top label-amount
+		left-of label-amount >=-1 px
+
+	amount:
+		text starts "${currencyIdentifier}"
+		inside label-amount

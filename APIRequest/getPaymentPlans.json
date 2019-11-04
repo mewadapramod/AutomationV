@@ -1,0 +1,16 @@
+{
+	"header": {
+		"ver": 1,
+		"src_sys_type": 2,
+		"src_sys_name": "test",
+		"archtics_version": "V605",
+		"session_id": "$SESSION_ID"
+	},
+	"command1": {
+		"cmd": "get_payment_plans_for_invoice",
+		"uid": "ats01",
+		"dsn": "genesis",
+		"acct_id": "104",
+		"invoice_id": "3607"
+	}
+}

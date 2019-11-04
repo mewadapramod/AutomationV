@@ -1,0 +1,59 @@
+@script ../my-methods.js
+@script ../my-rules.js
+@import ../galen-extras/galen-extras-rules.gspec
+
+@objects
+	eventimages       div[class*='events-imageOverlay']
+	datetimecolumns   div[class*='events-eventOrganized']
+	venuecolumns 	    div[class*='events-listEvent']
+	ticketcountclms 	div[class*='events-eventTicket']
+	viewbuttons       div[class*='events-btnView'] p
+	
+= Event Listing Detail Section =
+	@on desktop, laptop
+		eventimages:
+			| height ~100 px
+			width ~195px
+			inside parent ~0 px left, ~10 px top bottom
+
+		datetimecolumns:
+			| height ~48 px
+			@on laptop
+				width ~171px
+			@on desktop
+				width ~210px
+			inside parent ~45 px top bottom
+
+		venuecolumns:
+			| height ~48 px
+			@on laptop
+				width ~342 px
+			@on desktop
+				width ~420 px
+			@on desktop
+				inside parent ~45 px top bottom
+			@on laptop
+				inside parent ~30 px top bottom
+
+		ticketcountclms:
+			inside parent ~49 px top, 48 px bottom
+
+		viewbuttons:
+			height ~36 px
+			width ~190 px
+			inside parent ~41 px top bottom
+
+	@on mobile 
+		datetimecolumns:
+			| height ~48 px
+			#width 135 to 160 px
+			inside parent ~0 px left
+			centered vertically inside parent ~10 px
+
+		venuecolumns:
+			#width 120 to 165 px
+			#height 45 to 130 px
+
+			inside parent ~0 px right
+			centered vertically inside parent ~10 px
+			

@@ -1,0 +1,26 @@
+[
+	{
+		"name" : "mobile",
+		"dimension" : "375x667",
+		"tags" : ["mobile"],
+		"browsers" : ["chrome", "android", "ios", "safari", "firefox"]
+	},
+	{
+		"name" : "mini-tablet",
+		"dimension" : "768x1024",
+		"tags" : ["mini-tablet"],
+		"browsers" : ["chrome", "android", "ios", "safari", "firefox"]
+	},
+	{
+		"name" : "desktop",
+		"dimension" : "1600x1200",
+		"tags" : ["desktop"],
+		"browsers" : ["chrome", "firefox", "ie", "safari"]
+	},
+	{
+		"name" : "laptop",
+		"dimension" : "1280x960",
+		"tags" : ["laptop"],
+		"browsers" : ["chrome", "firefox", "ie", "safari"]
+	}
+]

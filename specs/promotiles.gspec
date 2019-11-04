@@ -1,0 +1,74 @@
+@import footer.gspec
+@import galen-extras/galen-extras-rules.gspec
+
+@objects
+    promoTiles-*  div[class='form-group'] div[class*='promotile']
+
+= Promo Tiles =
+    @on laptop, desktop
+        @if ${count("promoTiles-*") === 0}
+            @die "There are no promo tiles"
+        
+        global:
+            count visible promoTiles-* is 4
+
+        | last promoTiles-*:
+            above footer > 50 px
+
+    @forEach [promoTiles-*] as item, index as i
+        ${item}:
+            component components/promotile-detail.gspec, padding_right ${getCssProperty("promoTiles-" + i, "padding-right")}
+
+    @on laptop, desktop, tablet
+        @forEach [promoTiles-*] as tile, next as nextTile
+            ${tile}:
+                | left-of ${nextTile} ~30 px
+                aligned horizontally all ${nextTile}
+                above footer > 50 px
+
+    @on laptop
+        @forEach [promoTiles-*] as tile
+            ${tile}:
+                | width ~263 px
+                height ~180 px
+
+        promoTiles-1:
+            inside screen ${laptopMargin} left
+
+    @on desktop
+        @forEach [promoTiles-*] as tile
+            ${tile}:
+                | width ~330 px
+                height ~204 px
+
+        promoTiles-1:
+            inside screen ${desktopMargin} left
+
+    @on tablet
+        @forEach [promoTiles-*] as tile
+            ${tile}:
+                | width ~212 px
+                height ~184 px
+
+        promoTiles-1:
+            inside screen ${tabletMargin} left
+
+    @on mini-tablet
+        @forEach [promoTiles-*] as tile
+            ${tile}:
+                width 345 to 370 px
+                height ~184 px
+
+        promoTiles-1:
+            inside screen ${minitabletMargin} left
+
+        | promoTiles-* are rendered in 2 column table layout, with ~13px vertical and ~9px horizontal margin
+
+    @on mobile
+        @forEach [promoTiles-*] as tile
+            ${tile}:
+                centered horizontally inside viewport
+                #width 345 to 370 px
+                | height ~60 px
+
+        | promoTiles-* are aligned vertically above each other with equal distance        

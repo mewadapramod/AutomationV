@@ -1,0 +1,36 @@
+@script my-methods.js
+@script my-rules.js
+
+@objects
+	dashboardHeader 	.sub-header
+	sectionTabs 	.sectionTabs
+	links-* 	.sectionTabs a
+
+= Section =
+	| sectionTabs should be visible on mobile, mini-tablet but absent on desktop, laptop, tablet
+
+	@on mobile, mini-tablet
+		| amount of visible links-* should be 3
+
+		sectionTabs:
+			below dashboardHeader ~0 px
+			inside viewport ~0 px left right
+
+		| links-* are aligned horizontally next to each other with equal distance
+		| links-* sides are inside sectionTabs with ~ 0 px margin from top and bottom
+
+		@on mini-tablet
+			| links-* sides are inside sectionTabs with ~ 10.2px margin from left and right
+
+		@on mobile
+			| links-* sides are inside sectionTabs with ~ 5px margin from left and right
+
+		@forEach [links-*] as link
+			${link}:
+				height ~${parseFloat("16") + parseFloat(getCssProperty(link, "padding-top")) + parseFloat(getCssProperty(link, "padding-bottom")) + parseFloat(getCssProperty(link, "border-bottom-width"))} px
+				css font-family contains "verta"
+				#css font-size is "14px"
+				#css font-weight is "500"
+				#css font-style is "normal"
+				#css font-stretch is "normal"
+				#css text-align is "center"
