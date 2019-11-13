@@ -13,7 +13,7 @@
 		<framework.version>19.2</framework.version>
 		<sauce_username>iomedia</sauce_username>
 		<sauce_access_key>b27203b4-7132-4eca-b282-f81159feb957</sauce_access_key>
-		<jackson.version>2.9.3</jackson.version>
+		<jackson.version>2.10.1</jackson.version>
 	</properties>
 	<profiles>
 		<profile>
